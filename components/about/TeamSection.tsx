@@ -33,20 +33,20 @@ export function TeamSection() {
   ];
 
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="py-20 bg-gray-50 dark:bg-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
             Meet Our Team
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             Talented individuals united by a passion for technology and innovation
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {team.map((member, index) => (
-            <Card key={index} className="bg-white border-gray-200 hover:shadow-lg transition-shadow duration-300">
+            <Card key={index} className="bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-700 hover:shadow-lg transition-shadow duration-300">
               <CardHeader className="text-center">
                 <div className="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden">
                   <img 
@@ -55,20 +55,20 @@ export function TeamSection() {
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <CardTitle className="text-xl font-semibold text-gray-900">
+                <CardTitle className="text-xl font-semibold text-gray-900 dark:text-white">
                   {member.name}
                 </CardTitle>
-                <p className="text-blue-600 font-medium">{member.role}</p>
+                <p className="text-blue-600 dark:text-blue-400 font-medium">{member.role}</p>
               </CardHeader>
               <CardContent className="text-center">
-                <p className="text-gray-600 mb-4 leading-relaxed">
+                <p className="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
                   {member.bio}
                 </p>
                 <div className="flex justify-center space-x-3">
-                  <Button variant="outline" size="sm" className="p-2 h-8 w-8">
+                  <Button variant="outline" size="sm" className="p-2 h-8 w-8 border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800">
                     <Linkedin className="h-4 w-4" />
                   </Button>
-                  <Button variant="outline" size="sm" className="p-2 h-8 w-8">
+                  <Button variant="outline" size="sm" className="p-2 h-8 w-8 border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800">
                     <Mail className="h-4 w-4" />
                   </Button>
                 </div>

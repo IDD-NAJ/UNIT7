@@ -7,14 +7,14 @@ export function CompanyStory() {
   const { t } = useLanguage();
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-white dark:bg-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">
               {t('about.ourStory')}
             </h2>
-            <div className="space-y-6 text-gray-600 leading-relaxed">
+            <div className="space-y-6 text-gray-600 dark:text-gray-300 leading-relaxed">
               <p>
                 Founded in 2019, Unit-7ing Solutions emerged from a vision to bridge the gap 
                 between cutting-edge technology and practical business solutions. Our journey 
