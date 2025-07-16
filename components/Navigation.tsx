@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { useEffect } from 'react';
 import Link from 'next/link';
 import { 
   Menu, 
@@ -30,16 +31,27 @@ import {
 } from '@/components/ui/dialog';
 import { useLanguage } from '@/contexts/LanguageContext';
 import type { Language } from '../contexts/LanguageContext';
-import { useTheme } from 'next-themes';
-import { toast } from '@/hooks/use-toast';
-import ThemeToggle from "./ThemeToggle";
 
 export function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
+  const [isDarkMode, setIsDarkMode] = useState(false);
   const { language, setLanguage, t } = useLanguage();
-  const { theme, setTheme, resolvedTheme } = useTheme();
+
+  // Initialize theme on component mount
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+      setIsDarkMode(true);
+      document.documentElement.classList.add('dark');
+    } else {
+      setIsDarkMode(false);
+      document.documentElement.classList.remove('dark');
+    }
+  }, []);
 
   const navigation = [
     { name: t('nav.home'), href: '/' },
@@ -67,12 +79,16 @@ export function Navigation() {
   };
 
   const handleThemeToggle = () => {
-    const newTheme = resolvedTheme === 'dark' ? 'light' : 'dark';
-    setTheme(newTheme);
-    toast({
-      title: newTheme === 'dark' ? 'Switched to Dark Mode' : 'Switched to Light Mode',
-      description: `You are now using ${newTheme} mode.`
-    });
+    const newDarkMode = !isDarkMode;
+    setIsDarkMode(newDarkMode);
+    
+    if (newDarkMode) {
+      document.documentElement.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
+    }
   };
 
   return (
@@ -194,11 +210,11 @@ export function Navigation() {
             <Button
               variant="ghost"
               size="sm"
-              aria-label="Toggle dark mode"
-              className="flex items-center justify-center px-2 h-10 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200"
               onClick={handleThemeToggle}
+              aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
+              className="flex items-center justify-center px-2 h-10 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200"
             >
-              {resolvedTheme === 'dark' ? (
+              {isDarkMode ? (
                 <Sun className="h-5 w-5" />
               ) : (
                 <Moon className="h-5 w-5" />
