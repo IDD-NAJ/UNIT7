@@ -3,6 +3,7 @@
 import { Button } from '@/components/ui/button';
 import { ChevronRight, Play } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import Link from 'next/link';
 
 export function HeroSection() {
   const { t } = useLanguage();
@@ -22,10 +23,14 @@ export function HeroSection() {
             {t('hero.subtitle')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 text-lg">
-              {t('hero.getStarted')}
-              <ChevronRight className="ml-2 h-5 w-5" />
-            </Button>
+            <Link href="/contact" passHref legacyBehavior>
+              <Button asChild size="lg" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 text-lg">
+                <span>
+                  {t('hero.getStarted')}
+                  <ChevronRight className="ml-2 h-5 w-5" />
+                </span>
+              </Button>
+            </Link>
             <Button 
               variant="outline" 
               size="lg" 

@@ -3,7 +3,7 @@ import { ProjectsGrid } from '@/components/projects/ProjectsGrid';
 import { ProjectStats } from '@/components/projects/ProjectStats';
 
 export const metadata = {
-  title: 'Our Projects - TechVista Solutions',
+  title: 'Our Projects - Unit-7ing Solutions',
   description: 'Explore our portfolio of successful projects and case studies across various industries and technologies.',
 };
 

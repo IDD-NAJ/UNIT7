@@ -8,12 +8,12 @@ import { LanguageProvider } from '@/contexts/LanguageContext';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'TechVista Solutions - IT Consultation & Development Services',
+  title: 'Unit-7ing Solutions - IT Consultation & Development Services',
   description: 'Professional IT consultation, hardware development, software development, and tech solutions. Transform your business with cutting-edge technology.',
   keywords: 'IT consultation, software development, hardware development, web development, app development, tech solutions',
-  authors: [{ name: 'TechVista Solutions' }],
+  authors: [{ name: 'Unit-7ing Solutions' }],
   openGraph: {
-    title: 'TechVista Solutions - IT Consultation & Development Services',
+    title: 'Unit-7ing Solutions - IT Consultation & Development Services',
     description: 'Professional IT consultation, hardware development, software development, and tech solutions.',
     type: 'website',
   },
@@ -26,7 +26,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${inter.className} bg-gray-50 text-gray-900 antialiased`}>
+      <body className={`${inter.className} bg-background text-foreground antialiased`}>
         <LanguageProvider>
           <Navigation />
           <main className="min-h-screen">

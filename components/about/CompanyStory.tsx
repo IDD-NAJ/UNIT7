@@ -16,7 +16,7 @@ export function CompanyStory() {
             </h2>
             <div className="space-y-6 text-gray-600 leading-relaxed">
               <p>
-                Founded in 2019, TechVista Solutions emerged from a vision to bridge the gap 
+                Founded in 2019, Unit-7ing Solutions emerged from a vision to bridge the gap 
                 between cutting-edge technology and practical business solutions. Our journey 
                 began with a small team of passionate developers and consultants who believed 
                 in the transformative power of technology.

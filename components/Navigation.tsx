@@ -9,7 +9,9 @@ import {
   Search, 
   Globe, 
   ChevronDown,
-  Command
+  Command,
+  Moon,
+  Sun
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -27,12 +29,17 @@ import {
   DialogTrigger,
 } from '@/components/ui/dialog';
 import { useLanguage } from '@/contexts/LanguageContext';
+import type { Language } from '../contexts/LanguageContext';
+import { useTheme } from 'next-themes';
+import { toast } from '@/hooks/use-toast';
+import ThemeToggle from "./ThemeToggle";
 
 export function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const { language, setLanguage, t } = useLanguage();
+  const { theme, setTheme, resolvedTheme } = useTheme();
 
   const navigation = [
     { name: t('nav.home'), href: '/' },
@@ -59,6 +66,15 @@ export function Navigation() {
     setSearchQuery('');
   };
 
+  const handleThemeToggle = () => {
+    const newTheme = resolvedTheme === 'dark' ? 'light' : 'dark';
+    setTheme(newTheme);
+    toast({
+      title: newTheme === 'dark' ? 'Switched to Dark Mode' : 'Switched to Light Mode',
+      description: `You are now using ${newTheme} mode.`
+    });
+  };
+
   return (
     <nav className="bg-white/95 backdrop-blur-md border-b border-gray-200 sticky top-0 z-50 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -73,7 +89,7 @@ export function Navigation() {
                 <div className="absolute -inset-1 bg-gradient-to-br from-blue-600 to-purple-600 rounded-xl blur opacity-25 group-hover:opacity-40 transition-opacity duration-300"></div>
               </div>
               <div className="flex flex-col">
-                <span className="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors duration-200">TechVista</span>
+                <span className="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors duration-200">Unit-7ing</span>
                 <span className="text-xs text-gray-500 font-medium">Solutions</span>
               </div>
             </Link>
@@ -153,8 +169,7 @@ export function Navigation() {
                   size="sm" 
                   className="flex items-center space-x-2 px-3 py-2 h-10 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200"
                 >
-                    <span>{t('nav.language')}: {language}</span>
-                  <span className="font-medium">{language}</span>
+                    <span>{t('nav.language')}: <span className="font-medium">{language}</span></span>
                   <ChevronDown className="h-3 w-3" />
                 </Button>
               </DropdownMenuTrigger>
@@ -162,7 +177,7 @@ export function Navigation() {
                 {languages.map((lang) => (
                   <DropdownMenuItem
                     key={lang.code}
-                    onClick={() => setLanguage(lang.code)}
+                    onClick={() => setLanguage(lang.code as Language)}
                     className="flex items-center space-x-3 px-3 py-2 hover:bg-blue-50 cursor-pointer"
                   >
                     <span>{lang.flag}</span>
@@ -174,6 +189,21 @@ export function Navigation() {
                 ))}
               </DropdownMenuContent>
             </DropdownMenu>
+
+            {/* Dark Mode Toggle */}
+            <Button
+              variant="ghost"
+              size="sm"
+              aria-label="Toggle dark mode"
+              className="flex items-center justify-center px-2 h-10 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200"
+              onClick={handleThemeToggle}
+            >
+              {resolvedTheme === 'dark' ? (
+                <Sun className="h-5 w-5" />
+              ) : (
+                <Moon className="h-5 w-5" />
+              )}
+            </Button>
 
             {/* CTA Button */}
             <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-2 h-10 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 font-medium">
@@ -268,21 +298,21 @@ export function Navigation() {
                   >
                     <div className="flex items-center space-x-2">
                       <Globe className="h-4 w-4" />
-                      <span>Language: {selectedLanguage}</span>
+                      <span>Language: <span className="font-medium">{language}</span></span>
                     </div>
                     <ChevronDown className="h-4 w-4" />
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className="w-full">
-                  {languages.map((language) => (
+                  {languages.map((lang) => (
                     <DropdownMenuItem
-                      key={language.code}
-                      onClick={() => setSelectedLanguage(language.code)}
+                      key={lang.code}
+                      onClick={() => setLanguage(lang.code as Language)}
                       className="flex items-center space-x-3"
                     >
-                      <span>{language.flag}</span>
-                      <span>{language.name}</span>
-                      {selectedLanguage === language.code && (
+                      <span>{lang.flag}</span>
+                      <span>{lang.name}</span>
+                      {language === lang.code && (
                         <div className="ml-auto w-2 h-2 bg-blue-600 rounded-full"></div>
                       )}
                     </DropdownMenuItem>

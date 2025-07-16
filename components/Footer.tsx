@@ -17,7 +17,7 @@ export function Footer() {
               <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
                 <span className="text-white font-bold text-sm">TV</span>
               </div>
-              <span className="text-xl font-bold">TechVista Solutions</span>
+              <span className="text-xl font-bold">Unit-7ing Solutions</span>
             </div>
             <p className="text-gray-400 mb-4 max-w-md">
               {t('footer.description')}
@@ -52,7 +52,7 @@ export function Footer() {
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
                 <Mail className="h-5 w-5 text-blue-500" />
-                <span className="text-gray-400">info@techvista.com</span>
+                <span className="text-gray-400">info@Unit-7ing.com</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="h-5 w-5 text-blue-500" />

@@ -94,6 +94,10 @@ html {
   scroll-behavior: smooth;
 }
 
+html, body {
+  transition: background-color 0.4s, color 0.4s;
+}
+
 /* Custom animations */
 @keyframes fade-in-up {
   from {

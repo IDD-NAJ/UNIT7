@@ -12,6 +12,7 @@ import {
   ArrowRight,
   CheckCircle
 } from 'lucide-react';
+import Link from 'next/link';
 
 export function ServicesList() {
   const services = [
@@ -108,47 +109,74 @@ export function ServicesList() {
   ];
 
   return (
-    <section className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="space-y-16">
-          {services.map((service, index) => (
-            <Card key={index} className={`${service.bgColor} border-none shadow-lg`}>
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 p-8">
-                <div>
-                  <CardHeader className="p-0">
-                    <div className={`${service.color} mb-6`}>
-                      {service.icon}
-                    </div>
-                    <CardTitle className="text-2xl font-bold text-gray-900 mb-4">
-                      {service.title}
-                    </CardTitle>
-                    <CardDescription className="text-gray-600 text-lg leading-relaxed">
-                      {service.description}
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent className="p-0 mt-6">
-                    <Button className="bg-white text-gray-900 hover:bg-gray-100 border border-gray-200">
-                      Learn More
-                      <ArrowRight className="ml-2 h-4 w-4" />
-                    </Button>
-                  </CardContent>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-gray-900 mb-4">Key Features:</h4>
-                  <ul className="space-y-3">
-                    {service.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-start space-x-3">
-                        <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                        <span className="text-gray-700">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </Card>
-          ))}
+    <div>
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="space-y-16">
+            {services.map((service, index) => {
+              // Map service titles to their respective slugs
+              const serviceSlugs: Record<string, string> = {
+                'IT Consultation': 'it-consultation',
+                'Hardware Development': 'hardware-development',
+                'Software Development': 'software-development',
+                'Product Development': 'product-development',
+                'Web Development': 'web-development',
+                'Mobile Development': 'app-development',
+              };
+              const slug = serviceSlugs[service.title as keyof typeof serviceSlugs];
+              return (
+                <Link href={`/services/${slug}`} passHref legacyBehavior key={index}>
+                  <a className="block focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-lg transition-shadow hover:shadow-xl">
+                    <Card className={`${service.bgColor} border-none shadow-lg`}>
+                      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 p-8">
+                        <div>
+                          <CardHeader className="p-0">
+                            <div className={`${service.color} mb-6`}>
+                              {service.icon}
+                            </div>
+                            <CardTitle className="text-2xl font-bold text-gray-900 mb-4">
+                              {service.title}
+                            </CardTitle>
+                            <CardDescription className="text-gray-600 text-lg leading-relaxed">
+                              {service.description}
+                            </CardDescription>
+                          </CardHeader>
+                          <CardContent className="p-0 mt-6">
+                            <Button className="bg-white text-gray-900 hover:bg-gray-100 border border-gray-200 pointer-events-none">
+                              Learn More
+                              <ArrowRight className="ml-2 h-4 w-4" />
+                            </Button>
+                          </CardContent>
+                        </div>
+                        <div>
+                          <h4 className="font-semibold text-gray-900 mb-4">Key Features:</h4>
+                          <ul className="space-y-3">
+                            {service.features.map((feature, featureIndex) => (
+                              <li key={featureIndex} className="flex items-start space-x-3">
+                                <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
+                                <span className="text-gray-700">{feature}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+                    </Card>
+                  </a>
+                </Link>
+              );
+            })}
+          </div>
         </div>
+      </section>
+      <div className="flex justify-center mt-10">
+        <Link
+          href="/services"
+          className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 border border-blue-400 text-blue-600 hover:bg-blue-50 h-10 px-4 py-2"
+        >
+          View All Services
+          <ArrowRight className="ml-2 h-5 w-5" />
+        </Link>
       </div>
-    </section>
+    </div>
   );
 }

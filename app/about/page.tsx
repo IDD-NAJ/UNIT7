@@ -9,8 +9,8 @@ const AboutHero = dynamic(() => import('@/components/about/AboutHero').then(mod 
 });
 
 export const metadata = {
-  title: 'About Us - TechVista Solutions',
-  description: 'Learn about TechVista Solutions - our story, team, mission, and values driving innovation in technology.',
+  title: 'About Us - Unit-7ing Solutions',
+  description: 'Learn about Unit-7ing Solutions - our story, team, mission, and values driving innovation in technology.',
 };
 
 export default function About() {

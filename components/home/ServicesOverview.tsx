@@ -12,6 +12,7 @@ import {
   ArrowRight 
 } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import Link from 'next/link';
 
 export function ServicesOverview() {
   const { t } = useLanguage();
@@ -88,14 +89,19 @@ export function ServicesOverview() {
         </div>
 
         <div className="text-center mt-12">
-          <Button 
-            variant="outline" 
-            size="lg" 
-            className="border-blue-600 text-blue-600 hover:bg-blue-50"
-          >
-            {t('services.viewAll')}
-            <ArrowRight className="ml-2 h-5 w-5" />
-          </Button>
+          <Link href="/services" passHref legacyBehavior>
+            <Button 
+              asChild
+              variant="outline" 
+              size="lg" 
+              className="border-blue-600 text-blue-600 hover:bg-blue-50"
+            >
+              <span>
+                {t('services.viewAll')}
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </span>
+            </Button>
+          </Link>
         </div>
       </div>
     </section>

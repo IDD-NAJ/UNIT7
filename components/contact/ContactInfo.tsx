@@ -20,7 +20,7 @@ export function ContactInfo() {
     {
       icon: <Mail className="h-6 w-6" />,
       title: 'Email',
-      details: 'info@techvista.com',
+      details: 'info@Unit-7ing.com',
       description: 'Send us an email anytime',
       color: 'text-blue-600',
     },

@@ -66,7 +66,7 @@ const translations = {
     'projects.viewAll': 'View All Projects',
     
     // Why Choose Us
-    'whyChoose.title': 'Why Choose TechVista?',
+    'whyChoose.title': 'Why Choose Unit-7ing?',
     'whyChoose.subtitle': 'We combine technical expertise with business acumen to deliver exceptional results',
     'whyChoose.security': 'Security First',
     'whyChoose.securityDesc': 'Enterprise-grade security measures and compliance with industry standards.',
@@ -91,10 +91,10 @@ const translations = {
     'footer.description': 'Leading technology solutions provider specializing in IT consultation, software development, and innovative digital transformation services.',
     'footer.quickLinks': 'Quick Links',
     'footer.contactInfo': 'Contact Info',
-    'footer.copyright': '© 2024 TechVista Solutions. All rights reserved.',
+    'footer.copyright': '© 2024 Unit-7ing Solutions. All rights reserved.',
     
     // About Page
-    'about.title': 'About TechVista Solutions',
+    'about.title': 'About Unit-7ing Solutions',
     'about.subtitle': "We're a forward-thinking technology company dedicated to helping businesses thrive in the digital age through innovative solutions and expert consultation.",
     'about.ourStory': 'Our Story',
     'about.mission': 'Our Mission',
@@ -168,7 +168,7 @@ const translations = {
     'projects.viewAll': 'Ver Todos los Proyectos',
     
     // Why Choose Us
-    'whyChoose.title': '¿Por Qué Elegir TechVista?',
+    'whyChoose.title': '¿Por Qué Elegir Unit-7ing?',
     'whyChoose.subtitle': 'Combinamos experiencia técnica con conocimiento empresarial para entregar resultados excepcionales',
     'whyChoose.security': 'Seguridad Primero',
     'whyChoose.securityDesc': 'Medidas de seguridad de nivel empresarial y cumplimiento con estándares de la industria.',
@@ -193,10 +193,10 @@ const translations = {
     'footer.description': 'Proveedor líder de soluciones tecnológicas especializado en consultoría IT, desarrollo de software y servicios innovadores de transformación digital.',
     'footer.quickLinks': 'Enlaces Rápidos',
     'footer.contactInfo': 'Información de Contacto',
-    'footer.copyright': '© 2024 TechVista Solutions. Todos los derechos reservados.',
+    'footer.copyright': '© 2024 Unit-7ing Solutions. Todos los derechos reservados.',
     
     // About Page
-    'about.title': 'Acerca de TechVista Solutions',
+    'about.title': 'Acerca de Unit-7ing Solutions',
     'about.subtitle': 'Somos una empresa tecnológica visionaria dedicada a ayudar a las empresas a prosperar en la era digital a través de soluciones innovadoras y consultoría experta.',
     'about.ourStory': 'Nuestra Historia',
     'about.mission': 'Nuestra Misión',
@@ -270,7 +270,7 @@ const translations = {
     'projects.viewAll': 'Voir Tous les Projets',
     
     // Why Choose Us
-    'whyChoose.title': 'Pourquoi Choisir TechVista?',
+    'whyChoose.title': 'Pourquoi Choisir Unit-7ing?',
     'whyChoose.subtitle': 'Nous combinons expertise technique et sens des affaires pour livrer des résultats exceptionnels',
     'whyChoose.security': 'Sécurité d\'Abord',
     'whyChoose.securityDesc': 'Mesures de sécurité de niveau entreprise et conformité aux standards de l\'industrie.',
@@ -295,10 +295,10 @@ const translations = {
     'footer.description': 'Fournisseur leader de solutions technologiques spécialisé en consultation IT, développement logiciel et services innovants de transformation numérique.',
     'footer.quickLinks': 'Liens Rapides',
     'footer.contactInfo': 'Informations de Contact',
-    'footer.copyright': '© 2024 TechVista Solutions. Tous droits réservés.',
+    'footer.copyright': '© 2024 Unit-7ing Solutions. Tous droits réservés.',
     
     // About Page
-    'about.title': 'À Propos de TechVista Solutions',
+    'about.title': 'À Propos de Unit-7ing Solutions',
     'about.subtitle': 'Nous sommes une entreprise technologique avant-gardiste dédiée à aider les entreprises à prospérer à l\'ère numérique grâce à des solutions innovantes et une consultation experte.',
     'about.ourStory': 'Notre Histoire',
     'about.mission': 'Notre Mission',
@@ -372,7 +372,7 @@ const translations = {
     'projects.viewAll': 'Alle Projekte Anzeigen',
     
     // Why Choose Us
-    'whyChoose.title': 'Warum TechVista Wählen?',
+    'whyChoose.title': 'Warum Unit-7ing Wählen?',
     'whyChoose.subtitle': 'Wir kombinieren technische Expertise mit Geschäftssinn für außergewöhnliche Ergebnisse',
     'whyChoose.security': 'Sicherheit Zuerst',
     'whyChoose.securityDesc': 'Unternehmensklasse-Sicherheitsmaßnahmen und Compliance mit Industriestandards.',
@@ -397,10 +397,10 @@ const translations = {
     'footer.description': 'Führender Anbieter von Technologielösungen spezialisiert auf IT-Beratung, Softwareentwicklung und innovative digitale Transformationsdienstleistungen.',
     'footer.quickLinks': 'Schnelllinks',
     'footer.contactInfo': 'Kontaktinformationen',
-    'footer.copyright': '© 2024 TechVista Solutions. Alle Rechte vorbehalten.',
+    'footer.copyright': '© 2024 Unit-7ing Solutions. Alle Rechte vorbehalten.',
     
     // About Page
-    'about.title': 'Über TechVista Solutions',
+    'about.title': 'Über Unit-7ing Solutions',
     'about.subtitle': 'Wir sind ein zukunftsorientiertes Technologieunternehmen, das sich darauf spezialisiert hat, Unternehmen durch innovative Lösungen und Expertenberatung im digitalen Zeitalter zum Erfolg zu verhelfen.',
     'about.ourStory': 'Unsere Geschichte',
     'about.mission': 'Unsere Mission',
@@ -474,7 +474,7 @@ const translations = {
     'projects.viewAll': '查看所有项目',
     
     // Why Choose Us
-    'whyChoose.title': '为什么选择TechVista？',
+    'whyChoose.title': '为什么选择Unit-7ing？',
     'whyChoose.subtitle': '我们将技术专长与商业智慧相结合，提供卓越的成果',
     'whyChoose.security': '安全第一',
     'whyChoose.securityDesc': '企业级安全措施和符合行业标准的合规性。',
@@ -499,10 +499,10 @@ const translations = {
     'footer.description': '领先的技术解决方案提供商，专门从事IT咨询、软件开发和创新的数字化转型服务。',
     'footer.quickLinks': '快速链接',
     'footer.contactInfo': '联系信息',
-    'footer.copyright': '© 2024 TechVista Solutions. 保留所有权利。',
+    'footer.copyright': '© 2024 Unit-7ing Solutions. 保留所有权利。',
     
     // About Page
-    'about.title': '关于TechVista Solutions',
+    'about.title': '关于Unit-7ing Solutions',
     'about.subtitle': '我们是一家前瞻性的技术公司，致力于通过创新解决方案和专家咨询帮助企业在数字时代蓬勃发展。',
     'about.ourStory': '我们的故事',
     'about.mission': '我们的使命',
@@ -576,7 +576,7 @@ const translations = {
     'projects.viewAll': 'すべてのプロジェクトを見る',
     
     // Why Choose Us
-    'whyChoose.title': 'なぜTechVistaを選ぶのか？',
+    'whyChoose.title': 'なぜUnit-7ingを選ぶのか？',
     'whyChoose.subtitle': '技術的専門知識とビジネス洞察を組み合わせて、優れた結果を提供します',
     'whyChoose.security': 'セキュリティ第一',
     'whyChoose.securityDesc': 'エンタープライズグレードのセキュリティ対策と業界標準への準拠。',
@@ -601,10 +601,10 @@ const translations = {
     'footer.description': 'ITコンサルティング、ソフトウェア開発、革新的なデジタル変革サービスを専門とする主要な技術ソリューションプロバイダー。',
     'footer.quickLinks': 'クイックリンク',
     'footer.contactInfo': '連絡先情報',
-    'footer.copyright': '© 2024 TechVista Solutions. 全著作権所有。',
+    'footer.copyright': '© 2024 Unit-7ing Solutions. 全著作権所有。',
     
     // About Page
-    'about.title': 'TechVista Solutionsについて',
+    'about.title': 'Unit-7ing Solutionsについて',
     'about.subtitle': '私たちは、革新的なソリューションと専門的なコンサルティングを通じて、企業がデジタル時代に繁栄するのを支援することに専念する先進的な技術会社です。',
     'about.ourStory': '私たちの物語',
     'about.mission': '私たちの使命',
