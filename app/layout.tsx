@@ -4,6 +4,7 @@ import { Inter } from 'next/font/google';
 import { Navigation } from '@/components/Navigation';
 import { Footer } from '@/components/Footer';
 import { LanguageProvider } from '@/contexts/LanguageContext';
+import { BackToTop } from '@/components/BackToTop';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -33,6 +34,7 @@ export default function RootLayout({
             {children}
           </main>
           <Footer />
+          <BackToTop />
         </LanguageProvider>
       </body>
     </html>
