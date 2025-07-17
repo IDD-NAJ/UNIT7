@@ -10,17 +10,17 @@ export const metadata = {
 
 export default function AppDevelopment() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white dark:bg-gray-900">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-purple-50 via-white to-blue-50 py-20">
+      <section className="bg-gradient-to-br from-purple-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 py-20">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <div className="flex justify-center mb-6">
-            <span className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-purple-100">
+            <span className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-purple-100 dark:bg-purple-900">
               <Smartphone className="h-10 w-10 text-purple-600" />
             </span>
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">App Development</h1>
-          <p className="text-lg text-gray-700 mb-8 max-w-2xl mx-auto">
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">App Development</h1>
+          <p className="text-lg text-gray-700 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
             Native and cross-platform mobile applications for iOS and Android.
           </p>
           <Link href="/contact" passHref legacyBehavior>
@@ -36,10 +36,10 @@ export default function AppDevelopment() {
 
       {/* Key Features Section */}
       <div className="max-w-5xl mx-auto px-4">
-        <Card className="shadow-lg border-purple-100">
+        <Card className="shadow-lg border-purple-100 dark:border-purple-800 bg-white dark:bg-gray-800">
           <CardHeader>
-            <CardTitle className="text-2xl font-bold text-gray-900 mb-2">Key Features</CardTitle>
-            <CardDescription className="text-gray-600 text-lg">
+            <CardTitle className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Key Features</CardTitle>
+            <CardDescription className="text-gray-600 dark:text-gray-300 text-lg">
               Our App Development service covers a wide range of mobile solutions.
             </CardDescription>
           </CardHeader>
@@ -55,7 +55,7 @@ export default function AppDevelopment() {
               ].map((feature, idx) => (
                 <li key={idx} className="flex items-start space-x-3">
                   <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                  <span className="text-gray-800">{feature}</span>
+                  <span className="text-gray-800 dark:text-gray-200">{feature}</span>
                 </li>
               ))}
             </ul>
