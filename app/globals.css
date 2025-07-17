@@ -84,10 +84,48 @@
   border-color: rgba(51, 65, 85, 0.3);
 }
 
+/* Global white background to blue-black conversion in dark mode */
 .dark .bg-white {
-  background-color: hsl(var(--card));
+  background-color: #0f172a !important; /* Blue-black background */
 }
 
+/* Additional white background variants */
+.dark [class*="bg-white"] {
+  background-color: #0f172a !important;
+}
+
+/* Section backgrounds */
+.dark section.bg-white {
+  background-color: #0f172a !important;
+}
+
+/* Card backgrounds */
+.dark .bg-white.shadow,
+.dark .bg-white.border,
+.dark .bg-white.rounded {
+  background-color: #1e293b !important; /* Slightly lighter blue-black for cards */
+}
+
+/* Ensure proper contrast for text on blue-black backgrounds */
+.dark .bg-white .text-gray-900,
+.dark [class*="bg-white"] .text-gray-900 {
+  color: #f1f5f9 !important;
+}
+
+.dark .bg-white .text-gray-800,
+.dark [class*="bg-white"] .text-gray-800 {
+  color: #e2e8f0 !important;
+}
+
+.dark .bg-white .text-gray-700,
+.dark [class*="bg-white"] .text-gray-700 {
+  color: #cbd5e1 !important;
+}
+
+.dark .bg-white .text-gray-600,
+.dark [class*="bg-white"] .text-gray-600 {
+  color: #94a3b8 !important;
+}
 .dark .text-gray-900 {
   color: hsl(var(--foreground));
 }
