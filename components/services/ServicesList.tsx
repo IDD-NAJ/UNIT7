@@ -13,98 +13,106 @@ import {
   CheckCircle
 } from 'lucide-react';
 import Link from 'next/link';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export function ServicesList() {
+  const { t } = useLanguage();
   const services = [
     {
       icon: <Settings className="h-10 w-10" />,
-      title: 'IT Consultation',
-      description: 'Strategic technology consulting to optimize your business processes, infrastructure, and digital transformation roadmap.',
+      title: t('services.itConsultation'),
+      description: t('services.itConsultationDesc'),
       features: [
-        'Technology Strategy Planning',
-        'Digital Transformation Roadmap',
-        'Infrastructure Assessment',
-        'Cloud Migration Strategy',
-        'Security Audit & Compliance',
-        'Performance Optimization'
+        t('services.itConsultation.feature1'),
+        t('services.itConsultation.feature2'),
+        t('services.itConsultation.feature3'),
+        t('services.itConsultation.feature4'),
+        t('services.itConsultation.feature5'),
+        t('services.itConsultation.feature6'),
       ],
       color: 'text-blue-600',
       bgColor: 'bg-blue-50',
+      slug: 'it-consultation',
     },
     {
       icon: <Cpu className="h-10 w-10" />,
-      title: 'Hardware Development',
-      description: 'Custom hardware solutions from concept to production, including IoT devices, embedded systems, and specialized equipment.',
+      title: t('services.hardwareDev'),
+      description: t('services.hardwareDevDesc'),
       features: [
-        'PCB Design & Prototyping',
-        'Embedded System Development',
-        'IoT Device Creation',
-        'Hardware Testing & Validation',
-        'Manufacturing Support',
-        'Firmware Development'
+        t('services.hardwareDev.feature1'),
+        t('services.hardwareDev.feature2'),
+        t('services.hardwareDev.feature3'),
+        t('services.hardwareDev.feature4'),
+        t('services.hardwareDev.feature5'),
+        t('services.hardwareDev.feature6'),
       ],
-      color: 'text-purple-600',
-      bgColor: 'bg-purple-50',
+      color: 'text-green-900',
+      bgColor: 'bg-green-50',
+      slug: 'hardware-development',
     },
     {
       icon: <Code className="h-10 w-10" />,
-      title: 'Software Development',
-      description: 'Full-stack software solutions built with modern technologies, scalable architecture, and industry best practices.',
+      title: t('services.softwareDev'),
+      description: t('services.softwareDevDesc'),
       features: [
-        'Custom Software Development',
-        'API Development & Integration',
-        'Database Design & Optimization',
-        'Legacy System Modernization',
-        'Cloud-Native Applications',
-        'Microservices Architecture'
+        t('services.softwareDev.feature1'),
+        t('services.softwareDev.feature2'),
+        t('services.softwareDev.feature3'),
+        t('services.softwareDev.feature4'),
+        t('services.softwareDev.feature5'),
+        t('services.softwareDev.feature6'),
       ],
       color: 'text-blue-600',
       bgColor: 'bg-blue-50',
+      slug: 'software-development',
     },
     {
       icon: <Lightbulb className="h-10 w-10" />,
-      title: 'Product Development',
-      description: 'End-to-end product development from ideation to market launch, including user research, prototyping, and scaling.',
+      title: t('services.productDev'),
+      description: t('services.productDevDesc'),
       features: [
-        'Product Strategy & Planning',
-        'User Research & Validation',
-        'Prototype Development',
-        'MVP Development',
-        'Market Testing & Iteration',
-        'Go-to-Market Strategy'
+        t('services.productDev.feature1'),
+        t('services.productDev.feature2'),
+        t('services.productDev.feature3'),
+        t('services.productDev.feature4'),
+        t('services.productDev.feature5'),
+        t('services.productDev.feature6'),
       ],
       color: 'text-purple-600',
       bgColor: 'bg-purple-50',
+      slug: 'product-development',
     },
     {
       icon: <Globe className="h-10 w-10" />,
-      title: 'Web Development',
-      description: 'High-performance, responsive websites and web applications optimized for user experience and search engines.',
+      title: t('services.webDev'),
+      description: t('services.webDevDesc'),
       features: [
-        'Responsive Web Design',
-        'E-commerce Development',
-        'CMS Development',
-        'SEO Optimization',
-        'Performance Optimization',
-        'Progressive Web Apps'
+        t('services.webDev.feature1'),
+        t('services.webDev.feature2'),
+        t('services.webDev.feature3'),
+        t('services.webDev.feature4'),
+        t('services.webDev.feature5'),
+        t('services.webDev.feature6'),
       ],
       color: 'text-blue-600',
       bgColor: 'bg-blue-50',
+      slug: 'web-development',
     },
     {
       icon: <Smartphone className="h-10 w-10" />,
-      title: 'Mobile Development',
-      description: 'Native and cross-platform mobile applications for iOS and Android with focus on user experience and performance.',
+      title: t('services.appDev'),
+      description: t('services.appDevDesc'),
       features: [
-        'Native iOS & Android Apps',
-        'Cross-Platform Development',
-        'UI/UX Design',
-        'App Store Optimization',
-        'Push Notifications',
-        'Offline Functionality'
+        t('services.appDev.feature1'),
+        t('services.appDev.feature2'),
+        t('services.appDev.feature3'),
+        t('services.appDev.feature4'),
+        t('services.appDev.feature5'),
+        t('services.appDev.feature6'),
       ],
       color: 'text-purple-600',
       bgColor: 'bg-purple-50',
+      slug: 'app-development',
     },
   ];
 
@@ -113,58 +121,46 @@ export function ServicesList() {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="space-y-16">
-            {services.map((service, index) => {
-              // Map service titles to their respective slugs
-              const serviceSlugs: Record<string, string> = {
-                'IT Consultation': 'it-consultation',
-                'Hardware Development': 'hardware-development',
-                'Software Development': 'software-development',
-                'Product Development': 'product-development',
-                'Web Development': 'web-development',
-                'Mobile Development': 'app-development',
-              };
-              const slug = serviceSlugs[service.title as keyof typeof serviceSlugs];
-              return (
-                <Link href={`/services/${slug}`} passHref legacyBehavior key={index}>
-                  <a className="block focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-lg transition-shadow hover:shadow-xl">
-                    <Card className={`${service.bgColor} border-none shadow-lg`}>
-                      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 p-8">
-                        <div>
-                          <CardHeader className="p-0">
-                            <div className={`${service.color} mb-6`}>
-                              {service.icon}
-                            </div>
-                            <CardTitle className="text-2xl font-bold text-gray-900 mb-4">
-                              {service.title}
-                            </CardTitle>
-                            <CardDescription className="text-gray-600 text-lg leading-relaxed">
-                              {service.description}
-                            </CardDescription>
-                          </CardHeader>
-                          <CardContent className="p-0 mt-6">
-                            <Button className="bg-white text-gray-900 hover:bg-gray-100 border border-gray-200 pointer-events-none">
-                              Learn More
-                              <ArrowRight className="ml-2 h-4 w-4" />
-                            </Button>
-                          </CardContent>
-                        </div>
-                        <div>
-                          <h4 className="font-semibold text-gray-900 mb-4">Key Features:</h4>
-                          <ul className="space-y-3">
-                            {service.features.map((feature, featureIndex) => (
-                              <li key={featureIndex} className="flex items-start space-x-3">
-                                <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                                <span className="text-gray-700">{feature}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
+            {services.map((service, index) => (
+              <Link href={`/services/${service.slug}`} passHref legacyBehavior key={index}>
+                <a className="block focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-lg transition-shadow hover:shadow-xl">
+                  <Card className={`${service.bgColor} border-none shadow-lg`}>
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 p-8">
+                      <div>
+                        <CardHeader className="p-0">
+                          <div className={`${service.color} mb-6`}>
+                            {service.icon}
+                          </div>
+                          <CardTitle className="text-2xl font-bold text-gray-900 mb-4">
+                            {service.title}
+                          </CardTitle>
+                          <CardDescription className="text-gray-600 text-lg leading-relaxed">
+                            {service.description}
+                          </CardDescription>
+                        </CardHeader>
+                        <CardContent className="p-0 mt-6">
+                          <Button className="bg-white text-gray-900 hover:bg-gray-100 border border-gray-200 pointer-events-none">
+                            {t('services.learnMore')}
+                            <ArrowRight className="ml-2 h-4 w-4" />
+                          </Button>
+                        </CardContent>
                       </div>
-                    </Card>
-                  </a>
-                </Link>
-              );
-            })}
+                      <div>
+                        <h4 className="font-semibold text-gray-900 mb-4">{t('services.keyFeatures')}</h4>
+                        <ul className="space-y-3">
+                          {service.features.map((feature, featureIndex) => (
+                            <li key={featureIndex} className="flex items-start space-x-3">
+                              <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
+                              <span className="text-gray-700">{feature}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  </Card>
+                </a>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
@@ -173,7 +169,7 @@ export function ServicesList() {
           href="/services"
           className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 border border-blue-400 text-blue-600 hover:bg-blue-50 h-10 px-4 py-2"
         >
-          View All Services
+          {t('services.viewAll')}
           <ArrowRight className="ml-2 h-5 w-5" />
         </Link>
       </div>

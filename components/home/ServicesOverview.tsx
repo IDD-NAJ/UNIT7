@@ -28,7 +28,7 @@ export function ServicesOverview() {
       icon: <Cpu className="h-8 w-8" />,
       title: t('services.hardwareDev'),
       description: t('services.hardwareDevDesc'),
-      color: 'text-purple-600',
+      color: 'text-green-900',
     },
     {
       icon: <Code className="h-8 w-8" />,
@@ -40,7 +40,7 @@ export function ServicesOverview() {
       icon: <Lightbulb className="h-8 w-8" />,
       title: t('services.productDev'),
       description: t('services.productDevDesc'),
-      color: 'text-purple-600',
+      color: 'text-green-900',
     },
     {
       icon: <Globe className="h-8 w-8" />,
@@ -52,7 +52,7 @@ export function ServicesOverview() {
       icon: <Smartphone className="h-8 w-8" />,
       title: t('services.appDev'),
       description: t('services.appDevDesc'),
-      color: 'text-purple-600',
+      color: 'text-green-900',
     },
   ];
 

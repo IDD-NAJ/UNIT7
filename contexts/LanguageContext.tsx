@@ -12,8 +12,12 @@ interface LanguageContextType {
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
-// Translation data
-const translations = {
+// Add this type above the translations object
+type TranslationMap = { [key: string]: string };
+
+const translations: {
+  [lang: string]: TranslationMap;
+} = {
   EN: {
     // Navigation
     'nav.home': 'Home',
@@ -97,10 +101,39 @@ const translations = {
     'about.title': 'About Unit-7ing Solutions',
     'about.subtitle': "We're a forward-thinking technology company dedicated to helping businesses thrive in the digital age through innovative solutions and expert consultation.",
     'about.ourStory': 'Our Story',
-    'about.mission': 'Our Mission',
-    'about.vision': 'Our Vision',
+    'about.ourStoryP1': 'Founded in 2019, Unit-7ing Solutions emerged from a vision to bridge the gap between cutting-edge technology and practical business solutions. Our journey began with a small team of passionate developers and consultants who believed in the transformative power of technology.',
+    'about.ourStoryP2': "Over the years, we've grown from a startup to a trusted technology partner for businesses across various industries. Our commitment to excellence, innovation, and client satisfaction has been the driving force behind our success.",
+    'about.ourStoryP3': "Today, we're proud to have delivered over 500 successful projects, serving clients from startups to Fortune 500 companies. Our expertise spans across multiple domains, making us a one-stop solution for all technology needs.",
+    'about.missionVisionTitle': 'Mission & Vision',
+    'about.missionVisionSubtitle': 'Our guiding principles that drive everything we do',
+    'about.ourMission': 'Our Mission',
+    'about.ourMissionDesc': 'To empower businesses with innovative technology solutions that drive growth, efficiency, and competitive advantage. We strive to be the trusted partner that transforms ideas into reality through expert consultation and cutting-edge development.',
+    'about.ourVision': 'Our Vision',
+    'about.ourVisionDesc': 'To be the leading technology solutions provider that shapes the future of digital transformation. We envision a world where every business, regardless of size, has access to enterprise-grade technology solutions that propel them forward.',
     'about.values': 'Our Values',
+    'about.valuesSubtitle': 'The core principles that guide our decisions and shape our culture',
+    'about.valueInnovation': 'Innovation',
+    'about.valueInnovationDesc': 'We embrace new technologies and creative solutions to solve complex challenges.',
+    'about.valueCollaboration': 'Collaboration',
+    'about.valueCollaborationDesc': 'We work closely with clients as partners to achieve shared success.',
+    'about.valueIntegrity': 'Integrity',
+    'about.valueIntegrityDesc': 'We maintain the highest standards of honesty and ethical business practices.',
+    'about.valueExcellence': 'Excellence',
+    'about.valueExcellenceDesc': 'We strive for perfection in every project and deliver exceptional quality.',
+    'about.valuePassion': 'Passion',
+    'about.valuePassionDesc': 'We are passionate about technology and helping our clients succeed.',
+    'about.valueAgility': 'Agility',
+    'about.valueAgilityDesc': 'We adapt quickly to changing requirements and market demands.',
     'about.team': 'Meet Our Team',
+    'about.teamSubtitle': 'Talented individuals united by a passion for technology and innovation',
+    'about.teamSarahRole': 'CEO & Co-Founder',
+    'about.teamSarahBio': 'Serial entrepreneur with 15+ years in tech leadership.',
+    'about.teamMichaelRole': 'CTO & Co-Founder',
+    'about.teamMichaelBio': 'Former Google engineer passionate about scalable solutions.',
+    'about.teamEmilyRole': 'Head of Design',
+    'about.teamEmilyBio': 'Award-winning designer with expertise in user experience.',
+    'about.teamDavidRole': 'Lead Developer',
+    'about.teamDavidBio': 'Full-stack developer with expertise in modern frameworks.',
     
     // Contact Page
     'contact.title': 'Get in Touch',
@@ -115,6 +148,126 @@ const translations = {
     'contact.message': 'Project Description',
     'contact.send': 'Send Message',
     'contact.sending': 'Sending...',
+    'contact.formDescription': 'Fill out the form below and our team will get back to you as soon as possible.',
+    'contact.readyToStart': 'Ready to start your project? Reach out and our team will assist you promptly.',
+    'contact.messagePlaceholder': 'Tell us about your project, goals, or any questions you have...',
+
+    // SERVICES PAGE
+    'services.title': 'Our Services',
+    'services.heroDesc': 'Comprehensive technology solutions designed to transform your business and accelerate your digital journey.',
+    'services.exploreCategories': 'Explore Our Service Categories',
+    'services.whyChooseUs': 'Why Choose Us?',
+    'services.faqTitle': 'Frequently Asked Questions',
+    'services.quickInquiry': 'Quick Service Inquiry',
+    'services.inquiryTitle': 'Service Inquiry',
+    'services.inquiryName': 'Your Name',
+    'services.inquiryEmail': 'Your Email',
+    'services.inquiryHelp': 'How can we help you?',
+    'services.inquirySubmit': 'Submit Inquiry',
+    'services.learnMore': 'Learn More',
+    'services.seeOurWork': 'See Our Work',
+    'services.startProject': 'Start Your Project',
+    'services.keyFeatures': 'Key Features:',
+    // Tabs
+    'services.tabs.consulting': 'Consulting',
+    'services.tabs.consultingTitle': 'IT Consulting Services',
+    'services.tabs.consultingDesc': 'Expert guidance to optimize your business technology, strategy, and digital transformation.',
+    'services.tabs.consulting.feature1': 'Technology Strategy Planning',
+    'services.tabs.consulting.feature2': 'Digital Transformation Roadmap',
+    'services.tabs.consulting.feature3': 'Infrastructure Assessment',
+    'services.tabs.consulting.feature4': 'Cloud Migration Strategy',
+    'services.tabs.consulting.feature5': 'Security Audit & Compliance',
+    'services.tabs.development': 'Development',
+    'services.tabs.developmentTitle': 'Development Services',
+    'services.tabs.developmentDesc': 'Full-stack software, hardware, and web development tailored to your needs.',
+    'services.tabs.development.feature1': 'Custom Software Development',
+    'services.tabs.development.feature2': 'API Development & Integration',
+    'services.tabs.development.feature3': 'Embedded System & IoT',
+    'services.tabs.development.feature4': 'Web & Mobile Applications',
+    'services.tabs.development.feature5': 'Legacy System Modernization',
+    'services.tabs.product': 'Product',
+    'services.tabs.productTitle': 'Product Development',
+    'services.tabs.productDesc': 'End-to-end product development from ideation to launch and scaling.',
+    'services.tabs.product.feature1': 'Product Strategy & Planning',
+    'services.tabs.product.feature2': 'User Research & Validation',
+    'services.tabs.product.feature3': 'Prototype & MVP Development',
+    'services.tabs.product.feature4': 'Market Testing & Iteration',
+    'services.tabs.product.feature5': 'Go-to-Market Strategy',
+    // Highlights
+    'services.highlights.fastDelivery.title': 'Fast Delivery',
+    'services.highlights.fastDelivery.desc': 'We deliver projects on time with agile methodology.',
+    'services.highlights.customSolutions.title': 'Custom Solutions',
+    'services.highlights.customSolutions.desc': 'Tailored solutions to fit your unique business needs.',
+    'services.highlights.expertTeam.title': 'Expert Team',
+    'services.highlights.expertTeam.desc': 'Our team consists of industry experts and certified professionals.',
+    // FAQ
+    'services.faq.industries.q': 'What industries do you serve?',
+    'services.faq.industries.a': 'We serve a wide range of industries including healthcare, finance, retail, manufacturing, and more.',
+    'services.faq.getStarted.q': 'How do I get started with a project?',
+    'services.faq.getStarted.a': 'Simply contact us through our inquiry form or schedule a call. We will guide you through the process.',
+    'services.faq.postLaunch.q': 'Do you offer post-launch support?',
+    'services.faq.postLaunch.a': 'Yes, we provide ongoing maintenance and support for all our solutions.',
+    // ServicesList features (for each service)
+    'services.itConsultation.feature1': 'Technology Strategy Planning',
+    'services.itConsultation.feature2': 'Digital Transformation Roadmap',
+    'services.itConsultation.feature3': 'Infrastructure Assessment',
+    'services.itConsultation.feature4': 'Cloud Migration Strategy',
+    'services.itConsultation.feature5': 'Security Audit & Compliance',
+    'services.itConsultation.feature6': 'Performance Optimization',
+    'services.hardwareDev.feature1': 'PCB Design & Prototyping',
+    'services.hardwareDev.feature2': 'Embedded System Development',
+    'services.hardwareDev.feature3': 'IoT Device Creation',
+    'services.hardwareDev.feature4': 'Hardware Testing & Validation',
+    'services.hardwareDev.feature5': 'Manufacturing Support',
+    'services.hardwareDev.feature6': 'Firmware Development',
+    'services.softwareDev.feature1': 'Custom Software Development',
+    'services.softwareDev.feature2': 'API Development & Integration',
+    'services.softwareDev.feature3': 'Database Design & Optimization',
+    'services.softwareDev.feature4': 'Legacy System Modernization',
+    'services.softwareDev.feature5': 'Cloud-Native Applications',
+    'services.softwareDev.feature6': 'Microservices Architecture',
+    'services.productDev.feature1': 'Product Strategy & Planning',
+    'services.productDev.feature2': 'User Research & Validation',
+    'services.productDev.feature3': 'Prototype Development',
+    'services.productDev.feature4': 'MVP Development',
+    'services.productDev.feature5': 'Market Testing & Iteration',
+    'services.productDev.feature6': 'Go-to-Market Strategy',
+    'services.webDev.feature1': 'Responsive Web Design',
+    'services.webDev.feature2': 'E-commerce Development',
+    'services.webDev.feature3': 'CMS Development',
+    'services.webDev.feature4': 'SEO Optimization',
+    'services.webDev.feature5': 'Performance Optimization',
+    'services.webDev.feature6': 'Progressive Web Apps',
+    'services.appDev.feature1': 'Native iOS & Android Apps',
+    'services.appDev.feature2': 'Cross-Platform Development',
+    'services.appDev.feature3': 'UI/UX Design',
+    'services.appDev.feature4': 'App Store Optimization',
+    'services.appDev.feature5': 'Push Notifications',
+    'services.appDev.feature6': 'Offline Functionality',
+    // TechStack
+    'services.techStack.title': 'Our Technology Stack',
+    'services.techStack.desc': 'We leverage the latest technologies and frameworks to deliver cutting-edge solutions',
+    'services.techStack.frontend': 'Frontend',
+    'services.techStack.backend': 'Backend',
+    'services.techStack.mobile': 'Mobile',
+    'services.techStack.database': 'Database',
+    'services.techStack.cloud': 'Cloud',
+    'services.techStack.hardware': 'Hardware',
+    // ProcessSection
+    'services.process.title': 'Our Process',
+    'services.process.desc': 'A proven methodology that ensures successful project delivery every time',
+    'services.process.discovery.title': 'Discovery',
+    'services.process.discovery.desc': 'We analyze your requirements, understand your business goals, and identify the best technology solutions.',
+    'services.process.strategy.title': 'Strategy',
+    'services.process.strategy.desc': 'We create a detailed project plan with timelines, milestones, and resource allocation.',
+    'services.process.development.title': 'Development',
+    'services.process.development.desc': 'Our expert team builds your solution using modern technologies and best practices.',
+    'services.process.testing.title': 'Testing',
+    'services.process.testing.desc': 'Comprehensive testing ensures quality, performance, and security standards are met.',
+    'services.process.deployment.title': 'Deployment',
+    'services.process.deployment.desc': 'We deploy your solution to production with minimal downtime and maximum efficiency.',
+    'services.process.support.title': 'Support',
+    'services.process.support.desc': 'Ongoing maintenance and support to ensure your solution continues to perform optimally.',
   },
   ES: {
     // Navigation
@@ -199,10 +352,39 @@ const translations = {
     'about.title': 'Acerca de Unit-7ing Solutions',
     'about.subtitle': 'Somos una empresa tecnológica visionaria dedicada a ayudar a las empresas a prosperar en la era digital a través de soluciones innovadoras y consultoría experta.',
     'about.ourStory': 'Nuestra Historia',
-    'about.mission': 'Nuestra Misión',
-    'about.vision': 'Nuestra Visión',
+    'about.ourStoryP1': 'Fundada en 2019, Unit-7ing Solutions surgió de una visión para unir la brecha entre la tecnología de vanguardia y las soluciones prácticas de negocio. Nuestro viaje comenzó con un pequeño equipo de desarrolladores y consultores apasionados que creían en el poder transformador de la tecnología.',
+    'about.ourStoryP2': "A lo largo de los años, nos hemos convertido en un socio tecnológico de confianza para empresas en diversas industrias. Nuestra dedicación a la excelencia, la innovación y la satisfacción del cliente ha sido la fuerza impulsora de nuestro éxito.",
+    'about.ourStoryP3': "Hoy en día, estamos orgullosos de haber entregado más de 500 proyectos exitosos, sirviendo a clientes de startups a empresas Fortune 500. Nuestra experiencia abarca múltiples dominios, lo que nos convierte en una solución de un solo paso para todas las necesidades tecnológicas.",
+    'about.missionVisionTitle': 'Misión y Visión',
+    'about.missionVisionSubtitle': 'Los principios que guían todo lo que hacemos',
+    'about.ourMission': 'Nuestra Misión',
+    'about.ourMissionDesc': 'Para empoderar a las empresas con soluciones tecnológicas innovantes que impulsen el crecimiento, la eficiencia y la ventaja competitiva. Nos esforzamos por ser el socio de confianza que transforma ideas en realidad a través de la consultoría experta y el desarrollo de vanguardia.',
+    'about.ourVision': 'Nuestra Visión',
+    'about.ourVisionDesc': 'Para ser el principal proveedor de soluciones tecnológicas que forma el futuro de la transformación digital. Vemos un mundo donde cada empresa, independientemente del tamaño, tiene acceso a soluciones tecnológicas de nivel empresarial que la impulsan hacia adelante.',
     'about.values': 'Nuestros Valores',
+    'about.valuesSubtitle': 'Los principios fundamentales que guían nuestras decisiones y forman nuestra cultura',
+    'about.valueInnovation': 'Innovación',
+    'about.valueInnovationDesc': 'Aceptamos nuevas tecnologías y soluciones creativas para resolver desafíos complejos.',
+    'about.valueCollaboration': 'Colaboración',
+    'about.valueCollaborationDesc': 'Trabajamos estrechamente con los clientes como socios para lograr el éxito compartido.',
+    'about.valueIntegrity': 'Integridad',
+    'about.valueIntegrityDesc': 'Mantenemos los estándares más altos de honestidad y prácticas comerciales éticas.',
+    'about.valueExcellence': 'Excelencia',
+    'about.valueExcellenceDesc': 'Nos esforzamos por la perfección en cada proyecto y entregamos una calidad excepcional.',
+    'about.valuePassion': 'Pasión',
+    'about.valuePassionDesc': 'Estamos apasionados por la tecnología y ayudamos a nuestros clientes a tener éxito.',
+    'about.valueAgility': 'Agilidad',
+    'about.valueAgilityDesc': 'Nos adaptamos rápidamente a los requisitos cambiantes y las demandas del mercado.',
     'about.team': 'Conoce Nuestro Equipo',
+    'about.teamSubtitle': 'Individuales talentosos unidos por una pasión por la tecnología y la innovación',
+    'about.teamSarahRole': 'CEO & Co-Fundador',
+    'about.teamSarahBio': 'Emprendeur sérial con más de 15 años de liderazgo en tecnología.',
+    'about.teamMichaelRole': 'CTO & Co-Fundador',
+    'about.teamMichaelBio': 'Antiguo ingeniero de Google apasionado por soluciones escalables.',
+    'about.teamEmilyRole': 'Jefa de Diseño',
+    'about.teamEmilyBio': 'Diseñador ganador de premios con expertise en experiencia de usuario.',
+    'about.teamDavidRole': 'Desarrollador Principal',
+    'about.teamDavidBio': 'Desarrollador full-stack con expertise en frameworks modernos.',
     
     // Contact Page
     'contact.title': 'Ponte en Contacto',
@@ -217,6 +399,9 @@ const translations = {
     'contact.message': 'Descripción del Proyecto',
     'contact.send': 'Enviar Mensaje',
     'contact.sending': 'Enviando...',
+    'contact.formDescription': 'Complete el siguiente formulario y nuestro equipo se pondrá en contacto contigo lo antes posible.',
+    'contact.readyToStart': '¿Listo para comenzar tu proyecto? Contáctanos y nuestro equipo te ayudará rápidamente.',
+    'contact.messagePlaceholder': 'Cuéntanos sobre tu proyecto, objetivos o cualquier pregunta que tengas...',
   },
   FR: {
     // Navigation
@@ -301,10 +486,39 @@ const translations = {
     'about.title': 'À Propos de Unit-7ing Solutions',
     'about.subtitle': 'Nous sommes une entreprise technologique avant-gardiste dédiée à aider les entreprises à prospérer à l\'ère numérique grâce à des solutions innovantes et une consultation experte.',
     'about.ourStory': 'Notre Histoire',
-    'about.mission': 'Notre Mission',
-    'about.vision': 'Notre Vision',
+    'about.ourStoryP1': 'Fondée en 2019, Unit-7ing Solutions est née d\'une vision pour combler la brèche entre la technologie de pointe et les solutions pratiques pour les entreprises. Notre parcours a commencé avec un petit groupe d\'ingénieurs et de consultants passionnés qui croyaient au pouvoir transformateur de la technologie.',
+    'about.ourStoryP2': "Au fil des années, nous sommes devenus un partenaire technologique de confiance pour les entreprises dans divers secteurs. Notre engagement envers l\'excellence, l\'innovation et la satisfaction du client a été la force motrice de notre succès.",
+    'about.ourStoryP3': "Aujourd'hui, nous sommes fiers d'avoir livré plus de 500 projets réussis, aidant les entreprises de startups aux entreprises Fortune 500. Notre expertise s'étend sur plusieurs domaines, ce qui nous rend une solution de bout en bout pour toutes les besoins technologiques.",
+    'about.missionVisionTitle': 'Mission et Vision',
+    'about.missionVisionSubtitle': 'Les principes qui guident tout ce que nous faisons',
+    'about.ourMission': 'Notre Mission',
+    'about.ourMissionDesc': 'Pour donner aux entreprises des solutions technologiques innovantes qui accélèrent leur croissance, leur efficacité et leur avantage concurrentiel. Nous nous efforçons d\'être le partenaire de confiance qui transforme les idées en réalité grâce à la consultation experte et au développement de pointe.',
+    'about.ourVision': 'Notre Vision',
+    'about.ourVisionDesc': 'Pour être le principal fournisseur de solutions technologiques qui forment le futur de la transformation numérique. Nous imaginons un monde où chaque entreprise, indépendamment de sa taille, a accès à des solutions technologiques d\'entreprise de niveau qui l\'aident à avancer.',
     'about.values': 'Nos Valeurs',
+    'about.valuesSubtitle': 'Les principes fondamentaux qui guident nos décisions et forment notre culture',
+    'about.valueInnovation': 'Innovation',
+    'about.valueInnovationDesc': 'Nous adoptons de nouvelles technologies et des solutions créatives pour résoudre des défis complexes.',
+    'about.valueCollaboration': 'Collaboration',
+    'about.valueCollaborationDesc': 'Nous travaillons en étroite collaboration avec les clients comme partenaires pour réaliser le succès partagé.',
+    'about.valueIntegrity': 'Intégrité',
+    'about.valueIntegrityDesc': 'Nous maintenons les normes les plus élevées d\'honnêteté et de pratiques commerciales éthiques.',
+    'about.valueExcellence': 'Excellence',
+    'about.valueExcellenceDesc': 'Nous nous efforçons d\'atteindre la perfection dans chaque projet et de livrer une qualité exceptionnelle.',
+    'about.valuePassion': 'Passion',
+    'about.valuePassionDesc': 'Nous sommes passionnés par la technologie et nous aidons nos clients à réussir.',
+    'about.valueAgility': 'Agilité',
+    'about.valueAgilityDesc': 'Nous nous adaptons rapidement aux exigences changeantes et aux demandes du marché.',
     'about.team': 'Rencontrez Notre Équipe',
+    'about.teamSubtitle': 'Des individus talentueux unis par une passion pour la technologie et l\'innovation',
+    'about.teamSarahRole': 'CEO & Co-Fondateur',
+    'about.teamSarahBio': 'Emprendeur sérial avec plus de 15 ans d\'expérience en leadership technologique.',
+    'about.teamMichaelRole': 'CTO & Co-Fondateur',
+    'about.teamMichaelBio': 'Ancien ingénieur Google passionné par les solutions évolutives.',
+    'about.teamEmilyRole': 'Chef de Design',
+    'about.teamEmilyBio': 'Designer gagnant de prix avec expertise en expérience utilisateur.',
+    'about.teamDavidRole': 'Développeur Principal',
+    'about.teamDavidBio': 'Développeur full-stack avec expertise en frameworks modernes.',
     
     // Contact Page
     'contact.title': 'Contactez-Nous',
@@ -319,6 +533,9 @@ const translations = {
     'contact.message': 'Description du Projet',
     'contact.send': 'Envoyer le Message',
     'contact.sending': 'Envoi...',
+    'contact.formDescription': 'Remplissez le formulaire ci-dessous et notre équipe vous répondra dans les plus brefs délais.',
+    'contact.readyToStart': 'Prêt à démarrer votre projet ? Contactez-nous et notre équipe vous aidera rapidement.',
+    'contact.messagePlaceholder': 'Erzählen Sie uns von Ihrem Projekt, Ihren Zielen oder stellen Sie Ihre Fragen...',
   },
   DE: {
     // Navigation
@@ -403,10 +620,39 @@ const translations = {
     'about.title': 'Über Unit-7ing Solutions',
     'about.subtitle': 'Wir sind ein zukunftsorientiertes Technologieunternehmen, das sich darauf spezialisiert hat, Unternehmen durch innovative Lösungen und Expertenberatung im digitalen Zeitalter zum Erfolg zu verhelfen.',
     'about.ourStory': 'Unsere Geschichte',
-    'about.mission': 'Unsere Mission',
-    'about.vision': 'Unsere Vision',
+    'about.ourStoryP1': 'Gründet 2019, Unit-7ing Solutions entstand aus einer Vision, die Lücke zwischen modernster Technologie und praktischen Unternehmenslösungen zu überbrücken. Unser Weg begann mit einem kleinen Team von engagierten Entwicklern und Beratern, die der Transformationskraft der Technologie glaubten.',
+    'about.ourStoryP2': "Im Laufe der Jahre haben wir von einem Start-up zu einem vertrauenswürdigen Technologiepartner für Unternehmen in verschiedenen Branchen gewachsen. Unser Engagement für Ausdauer, Innovation und Kundenzufriedenheit war die treibende Kraft unseres Erfolgs.",
+    'about.ourStoryP3': "Heute sind wir stolz darauf, über 500 erfolgreiche Projekte geliefert zu haben, Kunden von Start-ups bis zu Fortune 500-Unternehmen zu dienen. Unsere Expertise reicht über mehrere Domänen, was uns zu einer Einstiegslösung für alle technologischen Anforderungen macht.",
+    'about.missionVisionTitle': 'Mission und Vision',
+    'about.missionVisionSubtitle': 'Die Prinzipien, die alles steuern, was wir tun',
+    'about.ourMission': 'Unsere Mission',
+    'about.ourMissionDesc': 'Um Unternehmen mit innovativen Technologielösungen zu entschärfen, die das Wachstum, die Effizienz und die Wettbewerbsfähigkeit fördern. Wir streben danach, den vertrauenswürdigen Partner zu sein, der Ideen in die Realität durch Expertenberatung und modernes Entwickeln transformiert.',
+    'about.ourVision': 'Unsere Vision',
+    'about.ourVisionDesc': 'Um den führenden Anbieter von Technologielösungen zu werden, die die Zukunft der digitalen Transformation formen. Wir sehen ein Universum, in dem jede Unternehmung, unabhängig von ihrer Größe, Zugriff auf Unternehmenslösungen von Unternehmensklasse hat, die sie voranbringt.',
     'about.values': 'Unsere Werte',
+    'about.valuesSubtitle': 'Die grundlegenden Prinzipien, die unsere Entscheidungen und unsere Kultur bestimmen',
+    'about.valueInnovation': 'Innovation',
+    'about.valueInnovationDesc': 'Wir nehmen neue Technologien und kreative Lösungen auf, um komplexe Herausforderungen zu lösen.',
+    'about.valueCollaboration': 'Zusammenarbeit',
+    'about.valueCollaborationDesc': 'Wir arbeiten eng mit Kunden als Partner zusammen, um gemeinsamen Erfolg zu erzielen.',
+    'about.valueIntegrity': 'Integrität',
+    'about.valueIntegrityDesc': 'Wir halten die höchsten Standards an Ehrlichkeit und ethischer Geschäftsethik ein.',
+    'about.valueExcellence': 'Excellenz',
+    'about.valueExcellenceDesc': 'Wir streben nach Perfektion in jedem Projekt und liefern eine außergewöhnliche Qualität.',
+    'about.valuePassion': 'Begeisterung',
+    'about.valuePassionDesc': 'Wir sind begeistert von Technologie und helfen unseren Kunden Erfolg zu haben.',
+    'about.valueAgility': 'Agilität',
+    'about.valueAgilityDesc': 'Wir passen schnell an verändernde Anforderungen und Marktbedürfnisse an.',
     'about.team': 'Lernen Sie Unser Team Kennen',
+    'about.teamSubtitle': 'Talentierte Individuen, die durch eine Leidenschaft für Technologie und Innovation vereint sind',
+    'about.teamSarahRole': 'CEO & Co-Fondateur',
+    'about.teamSarahBio': 'Emprendeur sérial avec plus de 15 ans d\'expérience en leadership technologique.',
+    'about.teamMichaelRole': 'CTO & Co-Fondateur',
+    'about.teamMichaelBio': 'Ancien ingénieur Google passionné par les solutions évolutives.',
+    'about.teamEmilyRole': 'Chef de Design',
+    'about.teamEmilyBio': 'Designer gagnant de prix avec expertise en expérience utilisateur.',
+    'about.teamDavidRole': 'Développeur Principal',
+    'about.teamDavidBio': 'Développeur full-stack avec expertise en frameworks modernes.',
     
     // Contact Page
     'contact.title': 'Kontaktieren Sie Uns',
@@ -421,6 +667,9 @@ const translations = {
     'contact.message': 'Projektbeschreibung',
     'contact.send': 'Nachricht Senden',
     'contact.sending': 'Senden...',
+    'contact.formDescription': 'Füllen Sie das untenstehende Formular aus und unser Team wird sich so schnell wie möglich bei Ihnen melden.',
+    'contact.readyToStart': 'Bereit, Ihr Projekt zu starten? Kontaktieren Sie uns und unser Team hilft Ihnen umgehend weiter.',
+    'contact.messagePlaceholder': 'Erzählen Sie uns von Ihrem Projekt, Ihren Zielen oder stellen Sie Ihre Fragen...',
   },
   ZH: {
     // Navigation
@@ -505,10 +754,39 @@ const translations = {
     'about.title': '关于Unit-7ing Solutions',
     'about.subtitle': '我们是一家前瞻性的技术公司，致力于通过创新解决方案和专家咨询帮助企业在数字时代蓬勃发展。',
     'about.ourStory': '我们的故事',
-    'about.mission': '我们的使命',
-    'about.vision': '我们的愿景',
+    'about.ourStoryP1': '成立于2019年，Unit-7ing Solutions诞生于一个愿景，即弥合尖端技术与实用商业解决方案之间的差距。我们的旅程始于一群充满激情的开发者和顾问，他们相信技术变革的力量。',
+    'about.ourStoryP2': "多年来，我们从小型企业成长为多个行业的技术合作伙伴。我们的承诺是卓越、创新和客户满意度，这是我们成功的驱动力。",
+    'about.ourStoryP3': "今天，我们为超过500个成功项目感到自豪，服务从初创企业到财富500强企业。我们的专业知识涵盖多个领域，使我们成为所有技术需求的单一解决方案。",
+    'about.missionVisionTitle': '使命与愿景',
+    'about.missionVisionSubtitle': '指导我们做一切的原则',
+    'about.ourMission': '我们的使命',
+    'about.ourMissionDesc': '为我们的企业提供创新技术解决方案，以推动增长、效率和竞争优势。我们致力于成为通过专家咨询和尖端开发将理念变为现实的值得信赖的合作伙伴。',
+    'about.ourVision': '我们的愿景',
+    'about.ourVisionDesc': '成为领先的解决方案提供商，塑造数字化转型的未来。我们设想一个世界，无论企业规模大小，都能获得企业级技术解决方案，推动其向前发展。',
     'about.values': '我们的价值观',
+    'about.valuesSubtitle': '指导我们决策和塑造我们文化的核心原则',
+    'about.valueInnovation': '创新',
+    'about.valueInnovationDesc': '我们接受新技术和创造性解决方案来解决复杂问题。',
+    'about.valueCollaboration': '合作',
+    'about.valueCollaborationDesc': '我们与客户作为合作伙伴紧密合作，以实现共同成功。',
+    'about.valueIntegrity': '诚信',
+    'about.valueIntegrityDesc': '我们保持最高的诚信和商业道德标准。',
+    'about.valueExcellence': '卓越',
+    'about.valueExcellenceDesc': '我们力求在每个项目中追求完美，并提供卓越的质量。',
+    'about.valuePassion': '热情',
+    'about.valuePassionDesc': '我们对技术充满热情，并帮助我们的客户取得成功。',
+    'about.valueAgility': '敏捷',
+    'about.valueAgilityDesc': '我们快速适应不断变化的需求和市场趋势。',
     'about.team': '认识我们的团队',
+    'about.teamSubtitle': '才华横溢的个人因对技术和创新的共同热情而团结在一起',
+    'about.teamSarahRole': 'CEO & Co-Founder',
+    'about.teamSarahBio': '拥有15年以上技术领导经验的连续创业者。',
+    'about.teamMichaelRole': 'CTO & Co-Founder',
+    'about.teamMichaelBio': '前Google工程师，对可扩展解决方案充满热情。',
+    'about.teamEmilyRole': '设计总监',
+    'about.teamEmilyBio': '获奖设计师，在用户体验方面拥有专业知识。',
+    'about.teamDavidRole': '首席开发人员',
+    'about.teamDavidBio': '在现代框架方面拥有专业知识的full-stack开发人员。',
     
     // Contact Page
     'contact.title': '联系我们',
@@ -523,6 +801,9 @@ const translations = {
     'contact.message': '项目描述',
     'contact.send': '发送消息',
     'contact.sending': '发送中...',
+    'contact.formDescription': '请填写下表，我们的团队会尽快与您联系。',
+    'contact.readyToStart': '准备好开始您的项目了吗？联系我们，我们的团队会尽快为您提供帮助。',
+    'contact.messagePlaceholder': '请告诉我们您的项目、目标或任何问题……',
   },
   JA: {
     // Navigation
@@ -607,10 +888,39 @@ const translations = {
     'about.title': 'Unit-7ing Solutionsについて',
     'about.subtitle': '私たちは、革新的なソリューションと専門的なコンサルティングを通じて、企業がデジタル時代に繁栄するのを支援することに専念する先進的な技術会社です。',
     'about.ourStory': '私たちの物語',
-    'about.mission': '私たちの使命',
-    'about.vision': '私たちのビジョン',
+    'about.ourStoryP1': '2019年に設立され、Unit-7ing Solutionsは、尖端技術と実践的なビジネスソリューションの間のギャップを埋めるために生まれました。私たちの旅は、技術の変革力を信じる情熱的な開発者とコンサルタントの小さなチームから始まりました。',
+    'about.ourStoryP2': "これまでの年月を経て、私たちは、様々な業界でのビジネスのための信頼できる技術パートナーに成長してきました。私たちの卓越性、革新、およびクライアント満足度への承諾は、私たちの成功の原動力でした。",
+    'about.ourStoryP3': "今日、私たちは、スタートアップからFortune 500企業までのクライアントに対して、500以上の成功プロジェクトを提供しています。私たちの専門知識は、すべての技術要件に対応するために、複数の分野にわたっています。",
+    'about.missionVisionTitle': '使命と願い',
+    'about.missionVisionSubtitle': '私たちが行うすべてのことを導く原則',
+    'about.ourMission': '私たちの使命',
+    'about.ourMissionDesc': '私たちの企業に革新的な技術ソリューションを与え、成長、効率、および競争力を推進することです。私たちは、専門家のコンサルティングと最先端開発を通じて、アイデアを現実に変える信頼できるパートナーとなることを目指しています。',
+    'about.ourVision': '私たちの願い',
+    'about.ourVisionDesc': '最先端の技術ソリューションプロバイダーとなり、デジタル変革の未来を形づくることです。私たちは、どの企業サイズに関わらず、企業レベルの技術ソリューションにアクセスできる世界を想像しています。',
     'about.values': '私たちの価値観',
+    'about.valuesSubtitle': '私たちの決定と文化を導く基本的な原則',
+    'about.valueInnovation': '革新',
+    'about.valueInnovationDesc': '複雑な課題を解決するために、新しい技術と創造的な解決策を受け入れます。',
+    'about.valueCollaboration': '協力',
+    'about.valueCollaborationDesc': '私たちは、共有成功を達成するために、クライアントとして密接に連携しています。',
+    'about.valueIntegrity': '誠実',
+    'about.valueIntegrityDesc': '私たちは、最高の誠実性と倫理的なビジネス慣行を維持しています。',
+    'about.valueExcellence': '優れた成果',
+    'about.valueExcellenceDesc': '私たちは、すべてのプロジェクトで完璧を追求し、優れた品質を提供します。',
+    'about.valuePassion': '情熱',
+    'about.valuePassionDesc': '私たちは、技術と顧客の成功を支援することに情熱を持っています。',
+    'about.valueAgility': '敏捷性',
+    'about.valueAgilityDesc': '私たちは、変化する要件と市場の要望に迅速に適応します。',
     'about.team': 'チームに会う',
+    'about.teamSubtitle': '技術と革新に共感する才能ある個人が集まっています',
+    'about.teamSarahRole': 'CEO & Co-Fondateur',
+    'about.teamSarahBio': '15年以上の技術リーダーシップ経験を持つ連続創業家。',
+    'about.teamMichaelRole': 'CTO & Co-Fondateur',
+    'about.teamMichaelBio': 'スケーラブルなソリューションに情熱を持つ前Googleエンジニア。',
+    'about.teamEmilyRole': 'デザインディレクター',
+    'about.teamEmilyBio': 'ユーザー体験に関する専門知識を持つ受賞歴のあるデザイナー。',
+    'about.teamDavidRole': 'ディレクター',
+    'about.teamDavidBio': '現代のフレームワークに関する専門知識を持つfull-stack開発者。',
     
     // Contact Page
     'contact.title': 'お問い合わせ',
@@ -625,8 +935,203 @@ const translations = {
     'contact.message': 'プロジェクトの説明',
     'contact.send': 'メッセージを送信',
     'contact.sending': '送信中...',
+    'contact.formDescription': '以下のフォームにご記入いただくと、担当者よりできるだけ早くご連絡いたします。',
+    'contact.readyToStart': 'プロジェクトを始める準備はできていますか？ご連絡いただければ、担当者が迅速に対応いたします。',
+    'contact.messagePlaceholder': 'プロジェクトや目標、ご質問などをご記入ください…',
   },
 };
+
+// Remove duplicate keys from all language objects, keeping only the last occurrence
+Object.keys(translations).forEach(lang => {
+  const seen = new Set();
+  const entries = Object.entries(translations[lang]);
+  // Reverse to keep the last occurrence
+  const deduped: { [k: string]: string } = {};
+  for (let i = entries.length - 1; i >= 0; i--) {
+    const [key, value] = entries[i];
+    if (!seen.has(key)) {
+      deduped[key] = String(value);
+      seen.add(key);
+    }
+  }
+  // Reverse again to restore original order
+  translations[lang] = Object.fromEntries(Object.entries(deduped).reverse()) as TranslationMap;
+});
+
+const ensureKeys = [
+  'services.exploreCategories',
+  'services.tabs.consulting',
+  'services.tabs.development',
+  'services.tabs.product',
+  'services.techStack.title',
+  'services.techStack.desc',
+  'services.techStack.frontend',
+  'services.techStack.backend',
+  'services.techStack.mobile',
+  'services.techStack.database',
+  'services.techStack.cloud',
+  'services.techStack.hardware',
+  'services.whyChooseUs',
+  'services.highlights.fastDelivery.title',
+  'services.highlights.customSolutions.title',
+  'services.highlights.expertTeam.title',
+  'services.process.title',
+  'services.process.desc',
+  'services.process.discovery.title',
+  'services.process.discovery.desc',
+  'services.process.strategy.title',
+  'services.process.strategy.desc',
+  'services.process.development.title',
+  'services.process.development.desc',
+  'services.process.testing.title',
+  'services.process.testing.desc',
+  'services.process.deployment.title',
+  'services.process.deployment.desc',
+  'services.process.support.title',
+  'services.process.support.desc',
+  'services.faqTitle',
+  'services.faq.industries.q',
+  'services.faq.getStarted.q',
+  'services.faq.postLaunch.q',
+  'services.quickInquiry',
+];
+['ES', 'FR', 'DE', 'ZH', 'JA'].forEach(lang => {
+  ensureKeys.forEach(key => {
+    if (!(key in translations[lang])) {
+      translations[lang][key] = translations.EN[key];
+    }
+  });
+});
+
+['ES', 'FR', 'DE', 'ZH', 'JA'].forEach(lang => {
+  if (!('services.heroDesc' in translations[lang])) {
+    translations[lang]['services.heroDesc'] = translations.EN['services.heroDesc'];
+  }
+});
+
+if (translations.ES['services.heroDesc'] === translations.EN['services.heroDesc'] || !translations.ES['services.heroDesc']) {
+  translations.ES['services.heroDesc'] = 'Soluciones tecnológicas integrales diseñadas para transformar su negocio y acelerar su viaje digital.';
+}
+if (translations.FR['services.heroDesc'] === translations.EN['services.heroDesc'] || !translations.FR['services.heroDesc']) {
+  translations.FR['services.heroDesc'] = 'Des solutions technologiques complètes conçues pour transformer votre entreprise et accélérer votre parcours numérique.';
+}
+if (translations.DE['services.heroDesc'] === translations.EN['services.heroDesc'] || !translations.DE['services.heroDesc']) {
+  translations.DE['services.heroDesc'] = 'Umfassende Technologielösungen, die Ihr Unternehmen transformieren und Ihre digitale Reise beschleunigen.';
+}
+if (translations.ZH['services.heroDesc'] === translations.EN['services.heroDesc'] || !translations.ZH['services.heroDesc']) {
+  translations.ZH['services.heroDesc'] = '为您的企业量身定制的综合技术解决方案，助力业务转型，加速数字化进程。';
+}
+if (translations.JA['services.heroDesc'] === translations.EN['services.heroDesc'] || !translations.JA['services.heroDesc']) {
+  translations.JA['services.heroDesc'] = 'ビジネスを変革し、デジタル化を加速するための包括的なテクノロジーソリューション。';
+}
+
+const allServiceKeys = [
+  'services.title',
+  'services.heroDesc',
+  'services.subtitle',
+  'services.itConsultation',
+  'services.itConsultationDesc',
+  'services.hardwareDev',
+  'services.hardwareDevDesc',
+  'services.softwareDev',
+  'services.softwareDevDesc',
+  'services.productDev',
+  'services.productDevDesc',
+  'services.webDev',
+  'services.webDevDesc',
+  'services.appDev',
+  'services.appDevDesc',
+  'services.viewAll',
+  'services.exploreCategories',
+  'services.whyChooseUs',
+  'services.faqTitle',
+  'services.quickInquiry',
+  'services.inquiryTitle',
+  'services.inquiryName',
+  'services.inquiryEmail',
+  'services.inquiryHelp',
+  'services.inquirySubmit',
+  'services.learnMore',
+  'services.seeOurWork',
+  'services.startProject',
+  'services.keyFeatures',
+  'services.tabs.consulting',
+  'services.tabs.consultingTitle',
+  'services.tabs.consultingDesc',
+  'services.tabs.consulting.feature1',
+  'services.tabs.consulting.feature2',
+  'services.tabs.consulting.feature3',
+  'services.tabs.consulting.feature4',
+  'services.tabs.consulting.feature5',
+  'services.tabs.development',
+  'services.tabs.developmentTitle',
+  'services.tabs.developmentDesc',
+  'services.tabs.development.feature1',
+  'services.tabs.development.feature2',
+  'services.tabs.development.feature3',
+  'services.tabs.development.feature4',
+  'services.tabs.development.feature5',
+  'services.tabs.product',
+  'services.tabs.productTitle',
+  'services.tabs.productDesc',
+  'services.tabs.product.feature1',
+  'services.tabs.product.feature2',
+  'services.tabs.product.feature3',
+  'services.tabs.product.feature4',
+  'services.tabs.product.feature5',
+  'services.highlights.fastDelivery.title',
+  'services.highlights.fastDelivery.desc',
+  'services.highlights.customSolutions.title',
+  'services.highlights.customSolutions.desc',
+  'services.highlights.expertTeam.title',
+  'services.highlights.expertTeam.desc',
+  'services.process.title',
+  'services.process.desc',
+  'services.process.discovery.title',
+  'services.process.discovery.desc',
+  'services.process.strategy.title',
+  'services.process.strategy.desc',
+  'services.process.development.title',
+  'services.process.development.desc',
+  'services.process.testing.title',
+  'services.process.testing.desc',
+  'services.process.deployment.title',
+  'services.process.deployment.desc',
+  'services.process.support.title',
+  'services.process.support.desc',
+  'services.faq.industries.q',
+  'services.faq.industries.a',
+  'services.faq.getStarted.q',
+  'services.faq.getStarted.a',
+  'services.faq.postLaunch.q',
+  'services.faq.postLaunch.a',
+  'services.techStack.title',
+  'services.techStack.desc',
+  'services.techStack.frontend',
+  'services.techStack.backend',
+  'services.techStack.mobile',
+  'services.techStack.database',
+  'services.techStack.cloud',
+  'services.techStack.hardware',
+];
+['ES', 'FR', 'DE', 'ZH', 'JA'].forEach(lang => {
+  allServiceKeys.forEach(key => {
+    if (!(key in translations[lang]) || translations[lang][key] === translations.EN[key]) {
+      translations[lang][key] = translations.EN[key];
+    }
+  });
+});
+
+['EN', 'ES', 'FR', 'DE', 'ZH', 'JA'].forEach(lang => {
+  // Remove typo key if it exists
+  if ('services.itConsulation.feature1' in translations[lang]) {
+    delete translations[lang]['services.itConsulation.feature1'];
+  }
+  // Ensure correct key exists
+  if (!('services.itConsultation.feature1' in translations[lang])) {
+    translations[lang]['services.itConsultation.feature1'] = translations.EN['services.itConsultation.feature1'];
+  }
+});
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
   const [language, setLanguage] = useState<Language>('EN');

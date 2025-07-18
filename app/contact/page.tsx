@@ -1,6 +1,4 @@
-import { ContactHero } from '@/components/contact/ContactHero';
-import { ContactForm } from '@/components/contact/ContactForm';
-import { ContactInfo } from '@/components/contact/ContactInfo';
+import ContactClient from './ContactClient';
 
 export const metadata = {
   title: 'Contact Us - Unit-7ing Solutions',
@@ -8,13 +6,5 @@ export const metadata = {
 };
 
 export default function Contact() {
-  return (
-    <div>
-      <ContactHero />
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
-        <ContactForm />
-        <ContactInfo />
-      </div>
-    </div>
-  );
+  return <ContactClient />;
 }

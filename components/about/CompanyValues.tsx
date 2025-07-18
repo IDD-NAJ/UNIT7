@@ -9,48 +9,50 @@ import {
   Heart,
   Zap
 } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export function CompanyValues() {
+  const { t } = useLanguage();
   const values = [
     {
       icon: <Lightbulb className="h-8 w-8" />,
-      title: 'Innovation',
-      description: 'We embrace new technologies and creative solutions to solve complex challenges.',
+      title: t('about.valueInnovation'),
+      description: t('about.valueInnovationDesc'),
       color: 'text-blue-600',
       bgColor: 'bg-blue-100',
     },
     {
       icon: <Users className="h-8 w-8" />,
-      title: 'Collaboration',
-      description: 'We work closely with clients as partners to achieve shared success.',
-      color: 'text-purple-600',
-      bgColor: 'bg-purple-100',
+      title: t('about.valueCollaboration'),
+      description: t('about.valueCollaborationDesc'),
+      color: 'text-green-900',
+      bgColor: 'bg-green-100',
     },
     {
       icon: <Shield className="h-8 w-8" />,
-      title: 'Integrity',
-      description: 'We maintain the highest standards of honesty and ethical business practices.',
+      title: t('about.valueIntegrity'),
+      description: t('about.valueIntegrityDesc'),
       color: 'text-green-600',
       bgColor: 'bg-green-100',
     },
     {
       icon: <Trophy className="h-8 w-8" />,
-      title: 'Excellence',
-      description: 'We strive for perfection in every project and deliver exceptional quality.',
+      title: t('about.valueExcellence'),
+      description: t('about.valueExcellenceDesc'),
       color: 'text-yellow-600',
       bgColor: 'bg-yellow-100',
     },
     {
       icon: <Heart className="h-8 w-8" />,
-      title: 'Passion',
-      description: 'We are passionate about technology and helping our clients succeed.',
+      title: t('about.valuePassion'),
+      description: t('about.valuePassionDesc'),
       color: 'text-red-600',
       bgColor: 'bg-red-100',
     },
     {
       icon: <Zap className="h-8 w-8" />,
-      title: 'Agility',
-      description: 'We adapt quickly to changing requirements and market demands.',
+      title: t('about.valueAgility'),
+      description: t('about.valueAgilityDesc'),
       color: 'text-indigo-600',
       bgColor: 'bg-indigo-100',
     },
@@ -61,10 +63,10 @@ export function CompanyValues() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            Our Values
+            {t('about.values')}
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            The core principles that guide our decisions and shape our culture
+            {t('about.valuesSubtitle')}
           </p>
         </div>
 

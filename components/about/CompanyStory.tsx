@@ -15,22 +15,9 @@ export function CompanyStory() {
               {t('about.ourStory')}
             </h2>
             <div className="space-y-6 text-gray-600 dark:text-gray-300 leading-relaxed">
-              <p>
-                Founded in 2019, Unit-7ing Solutions emerged from a vision to bridge the gap 
-                between cutting-edge technology and practical business solutions. Our journey 
-                began with a small team of passionate developers and consultants who believed 
-                in the transformative power of technology.
-              </p>
-              <p>
-                Over the years, we've grown from a startup to a trusted technology partner 
-                for businesses across various industries. Our commitment to excellence, 
-                innovation, and client satisfaction has been the driving force behind our success.
-              </p>
-              <p>
-                Today, we're proud to have delivered over 500 successful projects, serving 
-                clients from startups to Fortune 500 companies. Our expertise spans across 
-                multiple domains, making us a one-stop solution for all technology needs.
-              </p>
+              <p>{t('about.ourStoryP1')}</p>
+              <p>{t('about.ourStoryP2')}</p>
+              <p>{t('about.ourStoryP3')}</p>
             </div>
           </div>
           <div className="relative">

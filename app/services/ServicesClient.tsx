@@ -11,81 +11,84 @@ import { Sheet, SheetTrigger, SheetContent, SheetHeader } from '@/components/ui/
 import { Button } from '@/components/ui/button';
 import { useState } from 'react';
 import Link from 'next/link';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function ServicesClient() {
-  // Example FAQ data
+  const { t } = useLanguage();
+
+  // FAQ data with translation keys
   const faqs = [
-    { question: 'What industries do you serve?', answer: 'We serve a wide range of industries including healthcare, finance, retail, manufacturing, and more.' },
-    { question: 'How do I get started with a project?', answer: 'Simply contact us through our inquiry form or schedule a call. We will guide you through the process.' },
-    { question: 'Do you offer post-launch support?', answer: 'Yes, we provide ongoing maintenance and support for all our solutions.' },
+    { question: t('services.faq.industries.q'), answer: t('services.faq.industries.a') },
+    { question: t('services.faq.getStarted.q'), answer: t('services.faq.getStarted.a') },
+    { question: t('services.faq.postLaunch.q'), answer: t('services.faq.postLaunch.a') },
   ];
 
-  // Example Tabs data
+  // Tabs data with translation keys
   const tabData = [
     {
-      label: 'Consulting',
+      label: t('services.tabs.consulting'),
       content: (
         <div className="flex flex-col items-center">
-          <h3 className="text-xl font-semibold mb-2">IT Consulting Services</h3>
-          <p className="mb-4 max-w-xl text-gray-700 text-center">Expert guidance to optimize your business technology, strategy, and digital transformation.</p>
+          <h3 className="text-xl font-semibold mb-2">{t('services.tabs.consultingTitle')}</h3>
+          <p className="mb-4 max-w-xl text-gray-700 text-center">{t('services.tabs.consultingDesc')}</p>
           <ul className="mb-4 text-left list-disc list-inside text-gray-600">
-            <li>Technology Strategy Planning</li>
-            <li>Digital Transformation Roadmap</li>
-            <li>Infrastructure Assessment</li>
-            <li>Cloud Migration Strategy</li>
-            <li>Security Audit & Compliance</li>
+            <li>{t('services.tabs.consulting.feature1')}</li>
+            <li>{t('services.tabs.consulting.feature2')}</li>
+            <li>{t('services.tabs.consulting.feature3')}</li>
+            <li>{t('services.tabs.consulting.feature4')}</li>
+            <li>{t('services.tabs.consulting.feature5')}</li>
           </ul>
           <Link href="/services/it-consultation" passHref legacyBehavior>
-            <Button asChild className="bg-blue-600 text-white hover:bg-blue-700">Learn More</Button>
+            <Button asChild className="bg-blue-600 text-white hover:bg-blue-700">{t('services.learnMore')}</Button>
           </Link>
         </div>
       ),
     },
     {
-      label: 'Development',
+      label: t('services.tabs.development'),
       content: (
         <div className="flex flex-col items-center">
-          <h3 className="text-xl font-semibold mb-2">Development Services</h3>
-          <p className="mb-4 max-w-xl text-gray-700 text-center">Full-stack software, hardware, and web development tailored to your needs.</p>
+          <h3 className="text-xl font-semibold mb-2">{t('services.tabs.developmentTitle')}</h3>
+          <p className="mb-4 max-w-xl text-gray-700 text-center">{t('services.tabs.developmentDesc')}</p>
           <ul className="mb-4 text-left list-disc list-inside text-gray-600">
-            <li>Custom Software Development</li>
-            <li>API Development & Integration</li>
-            <li>Embedded System & IoT</li>
-            <li>Web & Mobile Applications</li>
-            <li>Legacy System Modernization</li>
+            <li>{t('services.tabs.development.feature1')}</li>
+            <li>{t('services.tabs.development.feature2')}</li>
+            <li>{t('services.tabs.development.feature3')}</li>
+            <li>{t('services.tabs.development.feature4')}</li>
+            <li>{t('services.tabs.development.feature5')}</li>
           </ul>
           <Link href="/projects" passHref legacyBehavior>
-            <Button asChild className="bg-blue-600 text-white hover:bg-blue-700">See Our Work</Button>
+            <Button asChild className="bg-blue-600 text-white hover:bg-blue-700">{t('services.seeOurWork')}</Button>
           </Link>
         </div>
       ),
     },
     {
-      label: 'Product',
+      label: t('services.tabs.product'),
       content: (
         <div className="flex flex-col items-center">
-          <h3 className="text-xl font-semibold mb-2">Product Development</h3>
-          <p className="mb-4 max-w-xl text-gray-700 text-center">End-to-end product development from ideation to launch and scaling.</p>
+          <h3 className="text-xl font-semibold mb-2">{t('services.tabs.productTitle')}</h3>
+          <p className="mb-4 max-w-xl text-gray-700 text-center">{t('services.tabs.productDesc')}</p>
           <ul className="mb-4 text-left list-disc list-inside text-gray-600">
-            <li>Product Strategy & Planning</li>
-            <li>User Research & Validation</li>
-            <li>Prototype & MVP Development</li>
-            <li>Market Testing & Iteration</li>
-            <li>Go-to-Market Strategy</li>
+            <li>{t('services.tabs.product.feature1')}</li>
+            <li>{t('services.tabs.product.feature2')}</li>
+            <li>{t('services.tabs.product.feature3')}</li>
+            <li>{t('services.tabs.product.feature4')}</li>
+            <li>{t('services.tabs.product.feature5')}</li>
           </ul>
           <Link href="/contact" passHref legacyBehavior>
-            <Button asChild className="bg-blue-600 text-white hover:bg-blue-700">Start Your Project</Button>
+            <Button asChild className="bg-blue-600 text-white hover:bg-blue-700">{t('services.startProject')}</Button>
           </Link>
         </div>
       ),
     },
   ];
 
-  // Example Hover Card data
+  // Highlights with translation keys
   const highlights = [
-    { title: 'Fast Delivery', description: 'We deliver projects on time with agile methodology.' },
-    { title: 'Custom Solutions', description: 'Tailored solutions to fit your unique business needs.' },
-    { title: 'Expert Team', description: 'Our team consists of industry experts and certified professionals.' },
+    { title: t('services.highlights.fastDelivery.title'), description: t('services.highlights.fastDelivery.desc') },
+    { title: t('services.highlights.customSolutions.title'), description: t('services.highlights.customSolutions.desc') },
+    { title: t('services.highlights.expertTeam.title'), description: t('services.highlights.expertTeam.desc') },
   ];
 
   const [open, setOpen] = useState(false);
@@ -97,7 +100,7 @@ export default function ServicesClient() {
 
       {/* Tabs Section */}
       <section className="max-w-4xl mx-auto my-16">
-        <h2 className="text-2xl font-bold mb-6 text-center">Explore Our Service Categories</h2>
+        <h2 className="text-2xl font-bold mb-6 text-center">{t('services.exploreCategories')}</h2>
         <Tabs defaultValue={tabData[0].label} className="w-full">
           <TabsList className="flex justify-center mb-4">
             {tabData.map(tab => (
@@ -116,7 +119,7 @@ export default function ServicesClient() {
 
       {/* Hover Cards Section */}
       <section className="max-w-5xl mx-auto my-16">
-        <h2 className="text-2xl font-bold mb-6 text-center">Why Choose Us?</h2>
+        <h2 className="text-2xl font-bold mb-6 text-center">{t('services.whyChooseUs')}</h2>
         <div className="flex flex-wrap justify-center gap-8">
           {highlights.map((item, idx) => (
             <HoverCard key={idx}>
@@ -138,7 +141,7 @@ export default function ServicesClient() {
 
       {/* FAQ Section */}
       <section className="max-w-3xl mx-auto my-16">
-        <h2 className="text-2xl font-bold mb-6 text-center">Frequently Asked Questions</h2>
+        <h2 className="text-2xl font-bold mb-6 text-center">{t('services.faqTitle')}</h2>
         <Accordion type="single" collapsible>
           {faqs.map((faq, idx) => (
             <AccordionItem key={idx} value={`faq-${idx}`}>
@@ -153,17 +156,17 @@ export default function ServicesClient() {
       <div className="flex justify-center my-16">
         <Sheet open={open} onOpenChange={setOpen}>
           <SheetTrigger asChild>
-            <Button size="lg" className="bg-blue-600 text-white hover:bg-blue-700">Quick Service Inquiry</Button>
+            <Button size="lg" className="bg-blue-600 text-white hover:bg-blue-700">{t('services.quickInquiry')}</Button>
           </SheetTrigger>
           <SheetContent side="right" className="w-full max-w-md">
             <SheetHeader>
-              <h2 className="text-xl font-bold mb-4">Service Inquiry</h2>
+              <h2 className="text-xl font-bold mb-4">{t('services.inquiryTitle')}</h2>
             </SheetHeader>
             <form className="space-y-4">
-              <input type="text" placeholder="Your Name" className="w-full border rounded px-3 py-2" />
-              <input type="email" placeholder="Your Email" className="w-full border rounded px-3 py-2" />
-              <textarea placeholder="How can we help you?" className="w-full border rounded px-3 py-2" rows={4} />
-              <Button type="submit" className="w-full bg-blue-600 text-white hover:bg-blue-700">Submit Inquiry</Button>
+              <input type="text" placeholder={t('services.inquiryName')} className="w-full border rounded px-3 py-2" />
+              <input type="email" placeholder={t('services.inquiryEmail')} className="w-full border rounded px-3 py-2" />
+              <textarea placeholder={t('services.inquiryHelp')} className="w-full border rounded px-3 py-2" rows={4} />
+              <Button type="submit" className="w-full bg-blue-600 text-white hover:bg-blue-700">{t('services.inquirySubmit')}</Button>
             </form>
           </SheetContent>
         </Sheet>

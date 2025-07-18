@@ -1,41 +1,43 @@
 'use client';
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export function TechStack() {
+  const { t } = useLanguage();
   const technologies = [
     {
-      category: 'Frontend',
+      category: t('services.techStack.frontend'),
       techs: ['React', 'Next.js', 'Vue.js', 'Angular', 'TypeScript', 'Tailwind CSS'],
       color: 'text-blue-600',
       bgColor: 'bg-blue-50',
     },
     {
-      category: 'Backend',
+      category: t('services.techStack.backend'),
       techs: ['Node.js', 'Python', 'Java', 'C#', 'Go', 'PHP'],
-      color: 'text-purple-600',
-      bgColor: 'bg-purple-50',
+      color: 'text-green-900',
+      bgColor: 'bg-green-50',
     },
     {
-      category: 'Mobile',
+      category: t('services.techStack.mobile'),
       techs: ['React Native', 'Flutter', 'Swift', 'Kotlin', 'Xamarin', 'Ionic'],
       color: 'text-green-600',
       bgColor: 'bg-green-50',
     },
     {
-      category: 'Database',
+      category: t('services.techStack.database'),
       techs: ['PostgreSQL', 'MongoDB', 'MySQL', 'Redis', 'Elasticsearch', 'Firebase'],
       color: 'text-orange-600',
       bgColor: 'bg-orange-50',
     },
     {
-      category: 'Cloud',
+      category: t('services.techStack.cloud'),
       techs: ['AWS', 'Google Cloud', 'Azure', 'Docker', 'Kubernetes', 'Terraform'],
       color: 'text-indigo-600',
       bgColor: 'bg-indigo-50',
     },
     {
-      category: 'Hardware',
+      category: t('services.techStack.hardware'),
       techs: ['Arduino', 'Raspberry Pi', 'ESP32', 'STM32', 'FPGA', 'PCB Design'],
       color: 'text-red-600',
       bgColor: 'bg-red-50',
@@ -47,10 +49,10 @@ export function TechStack() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Our Technology Stack
+            {t('services.techStack.title')}
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            We leverage the latest technologies and frameworks to deliver cutting-edge solutions
+            {t('services.techStack.desc')}
           </p>
         </div>
 

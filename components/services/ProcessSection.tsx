@@ -9,44 +9,46 @@ import {
   Rocket, 
   HeartHandshake 
 } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export function ProcessSection() {
+  const { t } = useLanguage();
   const process = [
     {
       step: '01',
       icon: <Search className="h-8 w-8" />,
-      title: 'Discovery',
-      description: 'We analyze your requirements, understand your business goals, and identify the best technology solutions.',
+      title: t('services.process.discovery.title'),
+      description: t('services.process.discovery.desc'),
     },
     {
       step: '02',
       icon: <Lightbulb className="h-8 w-8" />,
-      title: 'Strategy',
-      description: 'We create a detailed project plan with timelines, milestones, and resource allocation.',
+      title: t('services.process.strategy.title'),
+      description: t('services.process.strategy.desc'),
     },
     {
       step: '03',
       icon: <Code className="h-8 w-8" />,
-      title: 'Development',
-      description: 'Our expert team builds your solution using modern technologies and best practices.',
+      title: t('services.process.development.title'),
+      description: t('services.process.development.desc'),
     },
     {
       step: '04',
       icon: <TestTube className="h-8 w-8" />,
-      title: 'Testing',
-      description: 'Comprehensive testing ensures quality, performance, and security standards are met.',
+      title: t('services.process.testing.title'),
+      description: t('services.process.testing.desc'),
     },
     {
       step: '05',
       icon: <Rocket className="h-8 w-8" />,
-      title: 'Deployment',
-      description: 'We deploy your solution to production with minimal downtime and maximum efficiency.',
+      title: t('services.process.deployment.title'),
+      description: t('services.process.deployment.desc'),
     },
     {
       step: '06',
       icon: <HeartHandshake className="h-8 w-8" />,
-      title: 'Support',
-      description: 'Ongoing maintenance and support to ensure your solution continues to perform optimally.',
+      title: t('services.process.support.title'),
+      description: t('services.process.support.desc'),
     },
   ];
 
@@ -55,10 +57,10 @@ export function ProcessSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Our Process
+            {t('services.process.title')}
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            A proven methodology that ensures successful project delivery every time
+            {t('services.process.desc')}
           </p>
         </div>
 

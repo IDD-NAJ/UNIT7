@@ -1,6 +1,4 @@
-import { ProjectsHero } from '@/components/projects/ProjectsHero';
-import { ProjectsGrid } from '@/components/projects/ProjectsGrid';
-import { ProjectStats } from '@/components/projects/ProjectStats';
+import ProjectsClient from './ProjectsClient';
 
 export const metadata = {
   title: 'Our Projects - Unit-7ing Solutions',
@@ -8,11 +6,5 @@ export const metadata = {
 };
 
 export default function Projects() {
-  return (
-    <div>
-      <ProjectsHero />
-      <ProjectStats />
-      <ProjectsGrid />
-    </div>
-  );
+  return <ProjectsClient />;
 }
