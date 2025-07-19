@@ -16,14 +16,14 @@ import { useLanguage } from '@/contexts/LanguageContext';
 export default function ServicesClient() {
   const { t } = useLanguage();
 
-  // FAQ data with translation keys
+  // FAQ data with translation keys - moved inside component
   const faqs = [
     { question: t('services.faq.industries.q'), answer: t('services.faq.industries.a') },
     { question: t('services.faq.getStarted.q'), answer: t('services.faq.getStarted.a') },
     { question: t('services.faq.postLaunch.q'), answer: t('services.faq.postLaunch.a') },
   ];
 
-  // Tabs data with translation keys
+  // Tabs data with translation keys - moved inside component
   const tabData = [
     {
       label: t('services.tabs.consulting'),
@@ -84,7 +84,7 @@ export default function ServicesClient() {
     },
   ];
 
-  // Highlights with translation keys
+  // Highlights with translation keys - moved inside component
   const highlights = [
     { title: t('services.highlights.fastDelivery.title'), description: t('services.highlights.fastDelivery.desc') },
     { title: t('services.highlights.customSolutions.title'), description: t('services.highlights.customSolutions.desc') },
@@ -163,9 +163,9 @@ export default function ServicesClient() {
               <h2 className="text-xl font-bold mb-4">{t('services.inquiryTitle')}</h2>
             </SheetHeader>
             <form className="space-y-4">
-              <input type="text" placeholder={t('services.inquiryName')} className="w-full border rounded px-3 py-2" />
-              <input type="email" placeholder={t('services.inquiryEmail')} className="w-full border rounded px-3 py-2" />
-              <textarea placeholder={t('services.inquiryHelp')} className="w-full border rounded px-3 py-2" rows={4} />
+              <input type="text" placeholder={t('contact.name')} className="w-full border rounded px-3 py-2" />
+              <input type="email" placeholder={t('contact.email')} className="w-full border rounded px-3 py-2" />
+              <textarea placeholder={t('contact.message')} className="w-full border rounded px-3 py-2" rows={4} />
               <Button type="submit" className="w-full bg-blue-600 text-white hover:bg-blue-700">{t('services.inquirySubmit')}</Button>
             </form>
           </SheetContent>
