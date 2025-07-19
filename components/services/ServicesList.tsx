@@ -51,7 +51,7 @@ export function ServicesList() {
       slug: 'hardware-development',
     },
     {
-      icon: <Code className="h-10 w-10" />,
+      icon: <Code className="h-10 w-10" />, 
       title: t('services.softwareDev'),
       description: t('services.softwareDevDesc'),
       features: [

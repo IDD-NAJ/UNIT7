@@ -5,38 +5,10 @@ import { Button } from '@/components/ui/button';
 import { Smartphone, CheckCircle, ArrowRight, TrendingUp, Shield, Users, RefreshCcw, BookOpen, PhoneCall, Star } from 'lucide-react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-
-const features = [
-  'Native iOS & Android Apps',
-  'Cross-Platform Development',
-  'UI/UX Design',
-  'App Store Optimization',
-  'Push Notifications',
-  'Offline Functionality',
-  'API Integration',
-  'Real-Time Updates',
-  'Analytics & Crash Reporting',
-  'Custom Animations',
-  'Security & Compliance',
-  'Maintenance & Support',
-];
-
-const process = [
-  { icon: <BookOpen className="h-7 w-7 text-blue-600" />, title: 'Discovery', desc: 'Understand your app vision and requirements.' },
-  { icon: <TrendingUp className="h-7 w-7 text-green-900" />, title: 'Design', desc: 'Craft intuitive UI/UX and user flows.' },
-  { icon: <RefreshCcw className="h-7 w-7 text-blue-600" />, title: 'Development', desc: 'Build robust, scalable mobile apps.' },
-  { icon: <Shield className="h-7 w-7 text-green-900" />, title: 'Testing', desc: 'Ensure quality, performance, and security.' },
-  { icon: <Users className="h-7 w-7 text-blue-600" />, title: 'Launch & Support', desc: 'Deploy to stores and provide ongoing support.' },
-];
-
-const whyChoose = [
-  { icon: <Star className="h-8 w-8 text-green-900" />, title: 'Award-Winning Team', desc: 'Experienced mobile app developers and designers.' },
-  { icon: <Shield className="h-8 w-8 text-blue-600" />, title: 'Security First', desc: 'Best practices for data protection and compliance.' },
-  { icon: <Users className="h-8 w-8 text-green-900" />, title: 'User-Centric', desc: 'Apps designed for real user needs and delight.' },
-  { icon: <TrendingUp className="h-8 w-8 text-blue-600" />, title: 'Proven Results', desc: 'Apps that drive engagement and business growth.' },
-];
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function AppDevelopmentClient() {
+  const { t } = useLanguage();
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
@@ -47,14 +19,14 @@ export default function AppDevelopmentClient() {
               <Smartphone className="h-10 w-10 text-green-900" />
             </span>
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">App Development</h1>
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">{t('services.appDev')}</h1>
           <p className="text-lg text-gray-700 mb-8 max-w-2xl mx-auto">
-            Native and cross-platform mobile applications for iOS and Android.
+            {t('services.appDevDesc')}
           </p>
           <Link href="/contact" passHref legacyBehavior>
             <Button asChild size="lg" className="bg-green-900 hover:bg-green-800 text-white px-8 py-4 text-lg">
               <span>
-                Get Started Today
+                {t('hero.getStarted')}
                 <ArrowRight className="ml-2 h-5 w-5" />
               </span>
             </Button>
@@ -67,9 +39,9 @@ export default function AppDevelopmentClient() {
         <div className="max-w-5xl mx-auto px-4">
           <Card className="shadow-lg border-green-100 bg-gradient-to-br from-white to-green-50">
             <CardHeader>
-              <CardTitle className="text-2xl font-bold text-gray-900 mb-2">Key Features</CardTitle>
+              <CardTitle className="text-2xl font-bold text-gray-900 mb-2">{t('services.keyFeatures')}</CardTitle>
               <CardDescription className="text-gray-600 text-lg">
-                Our App Development service covers a wide range of mobile solutions.
+                {t('services.appDev.featuresDesc')}
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -82,7 +54,20 @@ export default function AppDevelopmentClient() {
                   visible: { transition: { staggerChildren: 0.08 } }
                 }}
               >
-                {features.map((feature, idx) => (
+                {[
+                  t('services.appDev.feature1'),
+                  t('services.appDev.feature2'),
+                  t('services.appDev.feature3'),
+                  t('services.appDev.feature4'),
+                  t('services.appDev.feature5'),
+                  t('services.appDev.feature6'),
+                  t('services.appDev.feature7'),
+                  t('services.appDev.feature8'),
+                  t('services.appDev.feature9'),
+                  t('services.appDev.feature10'),
+                  t('services.appDev.feature11'),
+                  t('services.appDev.feature12'),
+                ].map((feature, idx) => (
                   <motion.li
                     key={idx}
                     className="flex items-start space-x-3 bg-white/80 rounded-lg p-3 shadow-sm hover:shadow-md hover:bg-green-50 transition-all duration-200 cursor-pointer"
@@ -101,9 +86,15 @@ export default function AppDevelopmentClient() {
       {/* App Development Process Section */}
       <section className="py-16 bg-gradient-to-br from-green-50 via-white to-blue-50">
         <div className="max-w-5xl mx-auto px-4">
-          <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center">Our App Development Process</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center">{t('services.process.title')}</h2>
           <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
-            {process.map((step, idx) => (
+            {[
+              { icon: <BookOpen className="h-7 w-7 text-blue-600" />, title: t('services.process.discovery.title'), desc: t('services.process.discovery.desc') },
+              { icon: <TrendingUp className="h-7 w-7 text-green-900" />, title: t('services.process.strategy.title'), desc: t('services.process.strategy.desc') },
+              { icon: <RefreshCcw className="h-7 w-7 text-blue-600" />, title: t('services.process.development.title'), desc: t('services.process.development.desc') },
+              { icon: <Shield className="h-7 w-7 text-green-900" />, title: t('services.process.testing.title'), desc: t('services.process.testing.desc') },
+              { icon: <Users className="h-7 w-7 text-blue-600" />, title: t('services.process.deployment.title'), desc: t('services.process.deployment.desc') },
+            ].map((step, idx) => (
               <motion.div
                 key={idx}
                 className="flex flex-col items-center text-center bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-all duration-200"
@@ -124,9 +115,14 @@ export default function AppDevelopmentClient() {
       {/* Why Choose Us Section */}
       <section className="py-16 bg-white">
         <div className="max-w-5xl mx-auto px-4">
-          <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center">Why Choose Us?</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center">{t('services.whyChooseUs')}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {whyChoose.map((item, idx) => (
+            {[
+              { icon: <Star className="h-8 w-8 text-green-900" />, title: t('services.highlights.expertTeam.title'), desc: t('services.highlights.expertTeam.desc') },
+              { icon: <Shield className="h-8 w-8 text-blue-600" />, title: t('services.highlights.customSolutions.title'), desc: t('services.highlights.customSolutions.desc') },
+              { icon: <Users className="h-8 w-8 text-green-900" />, title: t('services.highlights.fastDelivery.title'), desc: t('services.highlights.fastDelivery.desc') },
+              { icon: <TrendingUp className="h-8 w-8 text-blue-600" />, title: t('services.highlights.provenResults.title'), desc: t('services.highlights.provenResults.desc') },
+            ].map((item, idx) => (
               <Card key={idx} className="flex flex-row items-center gap-6 p-6 shadow-md hover:shadow-lg transition-all duration-200">
                 <div>{item.icon}</div>
                 <div>
@@ -145,12 +141,12 @@ export default function AppDevelopmentClient() {
           <Card className="shadow-xl border-green-100 bg-white/90">
             <CardContent className="py-10 flex flex-col items-center text-center">
               <PhoneCall className="h-10 w-10 text-green-900 mb-4" />
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">Ready to Build Your App?</h3>
-              <p className="text-gray-700 mb-6">Contact us today for a free consultation and discover how we can help you launch a successful mobile app.</p>
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">{t('services.appDev.ctaTitle')}</h3>
+              <p className="text-gray-700 mb-6">{t('services.appDev.ctaDesc')}</p>
               <Link href="/contact" passHref legacyBehavior>
                 <Button asChild size="lg" className="bg-green-900 hover:bg-green-800 text-white px-8 py-4 text-lg">
                   <span>
-                    Get Your Free Consultation
+                    {t('services.appDev.ctaButton')}
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </span>
                 </Button>

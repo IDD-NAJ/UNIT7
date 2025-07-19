@@ -11,25 +11,23 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/contexts/LanguageContext';
 
-const services = [
-  { key: 'it-consultation', label: 'IT Consultation', icon: <HelpCircle className="h-6 w-6 text-blue-600" /> },
-  { key: 'software-development', label: 'Software Development', icon: <FileText className="h-6 w-6 text-green-900" /> },
-  { key: 'hardware-development', label: 'Hardware Development', icon: <Users className="h-6 w-6 text-blue-600" /> },
-  { key: 'web-development', label: 'Web Development', icon: <Mail className="h-6 w-6 text-green-900" /> },
-  { key: 'app-development', label: 'App Development', icon: <Phone className="h-6 w-6 text-blue-600" /> },
-  { key: 'product-development', label: 'Product Development', icon: <FileText className="h-6 w-6 text-green-900" /> },
-  { key: 'other', label: 'Other', icon: <HelpCircle className="h-6 w-6 text-gray-400" /> },
-];
-
-const faqs = [
-  { q: 'How quickly will I get a response?', a: 'We aim to respond to all inquiries within 1 business day.' },
-  { q: 'Can I schedule a call?', a: 'Absolutely! Use the form or our contact info to request a call.' },
-  { q: 'Do you offer support after project delivery?', a: 'Yes, we provide ongoing support and maintenance.' },
-  { q: 'Can I attach files or RFPs?', a: 'Yes, you can upload files directly in the contact form.' },
-];
-
 export default function ContactClient() {
   const { t } = useLanguage();
+  const services = [
+    { key: 'it-consultation', label: t('contact.services.itConsultation'), icon: <HelpCircle className="h-6 w-6 text-blue-600" /> },
+    { key: 'software-development', label: t('contact.services.softwareDevelopment'), icon: <FileText className="h-6 w-6 text-green-900" /> },
+    { key: 'hardware-development', label: t('contact.services.hardwareDevelopment'), icon: <Users className="h-6 w-6 text-blue-600" /> },
+    { key: 'web-development', label: t('contact.services.webDevelopment'), icon: <Mail className="h-6 w-6 text-green-900" /> },
+    { key: 'app-development', label: t('contact.services.appDevelopment'), icon: <Phone className="h-6 w-6 text-blue-600" /> },
+    { key: 'product-development', label: t('contact.services.productDevelopment'), icon: <FileText className="h-6 w-6 text-green-900" /> },
+    { key: 'other', label: t('contact.services.other'), icon: <HelpCircle className="h-6 w-6 text-gray-400" /> },
+  ];
+  const faqs = [
+    { q: t('contact.faqs.0.q'), a: t('contact.faqs.0.a') },
+    { q: t('contact.faqs.1.q'), a: t('contact.faqs.1.a') },
+    { q: t('contact.faqs.2.q'), a: t('contact.faqs.2.a') },
+    { q: t('contact.faqs.3.q'), a: t('contact.faqs.3.a') },
+  ];
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -174,13 +172,13 @@ export default function ContactClient() {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                       <Label htmlFor="hearAbout" className="text-sm font-medium text-gray-700">
-                        How did you hear about us?
+                        {t('contact.hearAbout')}
                       </Label>
-                      <Input id="hearAbout" name="hearAbout" type="text" value={formData.hearAbout} onChange={handleChange} className="mt-1 border-gray-300 focus:border-blue-500 focus:ring-blue-500" placeholder="Referral, Google, Social Media, etc." />
+                      <Input id="hearAbout" name="hearAbout" type="text" value={formData.hearAbout} onChange={handleChange} className="mt-1 border-gray-300 focus:border-blue-500 focus:ring-blue-500" placeholder={t('contact.hearAboutPlaceholder')} />
                     </div>
                     <div>
                       <Label htmlFor="file" className="text-sm font-medium text-gray-700">
-                        Attach a file (optional)
+                        {t('contact.attachFile')}
                       </Label>
                       <Input id="file" name="file" type="file" onChange={handleChange} className="mt-1 border-gray-300 focus:border-blue-500 focus:ring-blue-500" />
                     </div>
@@ -216,15 +214,17 @@ export default function ContactClient() {
             </div>
             <div className="space-y-4">
               {/* Contact Methods */}
-              {[{
-                icon: <Mail className="h-6 w-6" />, title: 'Email', details: 'info@Unit-7ing.com', description: 'Send us an email anytime', color: 'text-blue-600',
-              }, {
-                icon: <Phone className="h-6 w-6" />, title: 'Phone', details: '+1 (555) 123-4567', description: 'Mon-Fri from 8am to 5pm', color: 'text-green-600',
-              }, {
-                icon: <MapPin className="h-6 w-6" />, title: 'Office', details: '123 Tech Street, Silicon Valley, CA 94025', description: 'Come say hello at our office', color: 'text-purple-600',
-              }, {
-                icon: <MessageCircle className="h-6 w-6" />, title: 'Live Chat', details: 'Available 24/7', description: 'Get instant support', color: 'text-orange-600',
-              }].map((method, index) => (
+              {[
+                {
+                  icon: <Mail className="h-6 w-6" />, title: t('contact.method.email'), details: 'info@Unit-7ing.com', description: t('contact.method.emailDesc'), color: 'text-blue-600',
+                }, {
+                  icon: <Phone className="h-6 w-6" />, title: t('contact.method.phone'), details: '+1 (555) 123-4567', description: t('contact.method.phoneDesc'), color: 'text-green-600',
+                }, {
+                  icon: <MapPin className="h-6 w-6" />, title: t('contact.method.office'), details: '123 Tech Street, Silicon Valley, CA 94025', description: t('contact.method.officeDesc'), color: 'text-purple-600',
+                }, {
+                  icon: <MessageCircle className="h-6 w-6" />, title: t('contact.method.liveChat'), details: t('contact.method.liveChatDesc'), description: t('contact.method.liveChatDesc'), color: 'text-orange-600',
+                }
+              ].map((method, index) => (
                 <Card key={index} className="border-gray-200 hover:shadow-md transition-shadow duration-300">
                   <CardContent className="p-6">
                     <div className="flex items-start space-x-4">
@@ -244,21 +244,21 @@ export default function ContactClient() {
             {/* Business Hours */}
             <Card className="border-gray-200">
               <CardHeader>
-                <CardTitle className="text-xl font-bold text-gray-900">Business Hours</CardTitle>
+                <CardTitle className="text-xl font-bold text-gray-900">{t('contact.businessHours')}</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="space-y-2">
                   <div className="flex justify-between">
-                    <span className="text-gray-600">Monday - Friday</span>
-                    <span className="font-medium text-gray-900">8:00 AM - 5:00 PM</span>
+                    <span className="text-gray-600">{t('contact.businessHours.monFri')}</span>
+                    <span className="font-medium text-gray-900">{t('contact.businessHours.monFriTime')}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-gray-600">Saturday</span>
-                    <span className="font-medium text-gray-900">9:00 AM - 3:00 PM</span>
+                    <span className="text-gray-600">{t('contact.businessHours.saturday')}</span>
+                    <span className="font-medium text-gray-900">{t('contact.businessHours.saturdayTime')}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-gray-600">Sunday</span>
-                    <span className="font-medium text-gray-900">Closed</span>
+                    <span className="text-gray-600">{t('contact.businessHours.sunday')}</span>
+                    <span className="font-medium text-gray-900">{t('contact.businessHours.closed')}</span>
                   </div>
                 </div>
               </CardContent>
@@ -266,8 +266,8 @@ export default function ContactClient() {
             {/* Social Links */}
             <Card className="border-gray-200">
               <CardHeader>
-                <CardTitle className="text-xl font-bold text-gray-900">Follow Us</CardTitle>
-                <CardDescription>Stay connected with our latest updates and insights</CardDescription>
+                <CardTitle className="text-xl font-bold text-gray-900">{t('contact.social.followUs')}</CardTitle>
+                <CardDescription>{t('contact.social.stayConnected')}</CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="flex space-x-4">
@@ -282,15 +282,15 @@ export default function ContactClient() {
               <CardContent className="p-6">
                 <div className="flex items-center space-x-3 mb-3">
                   <Clock className="h-5 w-5 text-blue-600" />
-                  <h3 className="font-semibold text-blue-900">Emergency Support</h3>
+                  <h3 className="font-semibold text-blue-900">{t('contact.emergencySupport')}</h3>
                 </div>
-                <p className="text-blue-800 text-sm">For urgent technical issues, call our emergency line at <span className="font-medium"> +1 (555) 999-0000</span></p>
+                <p className="text-blue-800 text-sm">{t('contact.emergencySupportDesc')} <span className="font-medium"> +1 (555) 999-0000</span></p>
               </CardContent>
             </Card>
             {/* Map Embed */}
             <Card className="border-gray-200">
               <CardHeader>
-                <CardTitle className="text-xl font-bold text-gray-900">Our Location</CardTitle>
+                <CardTitle className="text-xl font-bold text-gray-900">{t('contact.ourLocation')}</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="rounded-lg overflow-hidden shadow-sm">
@@ -312,7 +312,7 @@ export default function ContactClient() {
 
       {/* FAQ Section */}
       <section className="max-w-3xl mx-auto px-4 py-12">
-        <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">Frequently Asked Questions</h2>
+        <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">{t('contact.faqSectionTitle')}</h2>
         <div className="space-y-4">
           {faqs.map((faq, idx) => (
             <motion.div key={idx} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: idx * 0.1 }}>
@@ -340,12 +340,12 @@ export default function ContactClient() {
           <Card className="shadow-xl border-green-100 bg-white/90">
             <CardContent className="py-10 flex flex-col items-center text-center">
               <Users className="h-10 w-10 text-green-900 mb-4" />
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">Let's Connect!</h3>
-              <p className="text-gray-700 mb-6">Schedule a call or chat with our team to discuss your project or support needs. We're here to help you succeed.</p>
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">{t('contact.cta.title')}</h3>
+              <p className="text-gray-700 mb-6">{t('contact.cta.desc')}</p>
               <Link href="/contact" passHref legacyBehavior>
                 <Button asChild size="lg" className="bg-green-900 hover:bg-green-800 text-white px-8 py-4 text-lg">
                   <span>
-                    Schedule a Call
+                    {t('contact.cta.button')}
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </span>
                 </Button>

@@ -5,38 +5,11 @@ import { Button } from '@/components/ui/button';
 import { Code, CheckCircle, ArrowRight, TrendingUp, Shield, Users, RefreshCcw, BookOpen, PhoneCall, Star } from 'lucide-react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-
-const features = [
-  'Custom Software Development',
-  'API Development & Integration',
-  'Database Design & Optimization',
-  'Legacy System Modernization',
-  'Cloud-Native Applications',
-  'Microservices Architecture',
-  'DevOps & CI/CD',
-  'SaaS Solutions',
-  'Security & Compliance',
-  'Performance Optimization',
-  'Maintenance & Support',
-  'Automated Testing',
-];
-
-const process = [
-  { icon: <BookOpen className="h-7 w-7 text-blue-600" />, title: 'Discovery', desc: 'Understand your business needs and software goals.' },
-  { icon: <TrendingUp className="h-7 w-7 text-green-900" />, title: 'Design', desc: 'Architect scalable, maintainable solutions.' },
-  { icon: <RefreshCcw className="h-7 w-7 text-blue-600" />, title: 'Development', desc: 'Build robust, high-quality software.' },
-  { icon: <Shield className="h-7 w-7 text-green-900" />, title: 'Testing', desc: 'Ensure reliability, security, and performance.' },
-  { icon: <Users className="h-7 w-7 text-blue-600" />, title: 'Deployment & Support', desc: 'Launch and maintain your software.' },
-];
-
-const whyChoose = [
-  { icon: <Star className="h-8 w-8 text-green-900" />, title: 'Experienced Team', desc: 'Full-stack engineers and architects.' },
-  { icon: <Shield className="h-8 w-8 text-blue-600" />, title: 'Secure by Design', desc: 'Security and compliance at every step.' },
-  { icon: <Users className="h-8 w-8 text-green-900" />, title: 'Collaborative Process', desc: 'Transparent, agile, and client-focused.' },
-  { icon: <TrendingUp className="h-8 w-8 text-blue-600" />, title: 'Proven Results', desc: 'Successful launches and happy clients.' },
-];
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function SoftwareDevelopmentClient() {
+  const { t } = useLanguage();
+
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
@@ -47,14 +20,14 @@ export default function SoftwareDevelopmentClient() {
               <Code className="h-10 w-10 text-blue-600" />
             </span>
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Software Development</h1>
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">{t('software.hero.title')}</h1>
           <p className="text-lg text-gray-700 mb-8 max-w-2xl mx-auto">
-            Full-stack software solutions built with modern technologies and best practices.
+            {t('software.hero.subtitle')}
           </p>
           <Link href="/contact" passHref legacyBehavior>
             <Button asChild size="lg" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 text-lg">
               <span>
-                Get Started Today
+                {t('software.cta.button')}
                 <ArrowRight className="ml-2 h-5 w-5" />
               </span>
             </Button>
@@ -67,9 +40,9 @@ export default function SoftwareDevelopmentClient() {
         <div className="max-w-5xl mx-auto px-4">
           <Card className="shadow-lg border-blue-100 bg-gradient-to-br from-white to-green-50">
             <CardHeader>
-              <CardTitle className="text-2xl font-bold text-gray-900 mb-2">Key Features</CardTitle>
+              <CardTitle className="text-2xl font-bold text-gray-900 mb-2">{t('software.features.title')}</CardTitle>
               <CardDescription className="text-gray-600 text-lg">
-                Our Software Development service covers a wide range of modern software solutions.
+                {t('software.features.desc')}
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -82,7 +55,20 @@ export default function SoftwareDevelopmentClient() {
                   visible: { transition: { staggerChildren: 0.08 } }
                 }}
               >
-                {features.map((feature, idx) => (
+                {[
+                  t('software.features.custom'),
+                  t('software.features.api'),
+                  t('software.features.database'),
+                  t('software.features.legacy'),
+                  t('software.features.cloud'),
+                  t('software.features.microservices'),
+                  t('software.features.devops'),
+                  t('software.features.saas'),
+                  t('software.features.security'),
+                  t('software.features.performance'),
+                  t('software.features.maintenance'),
+                  t('software.features.testing'),
+                ].map((feature, idx) => (
                   <motion.li
                     key={idx}
                     className="flex items-start space-x-3 bg-white/80 rounded-lg p-3 shadow-sm hover:shadow-md hover:bg-green-50 transition-all duration-200 cursor-pointer"
@@ -101,9 +87,15 @@ export default function SoftwareDevelopmentClient() {
       {/* Software Development Process Section */}
       <section className="py-16 bg-gradient-to-br from-green-50 via-white to-blue-50">
         <div className="max-w-5xl mx-auto px-4">
-          <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center">Our Software Development Process</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center">{t('software.process.title')}</h2>
           <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
-            {process.map((step, idx) => (
+            {[
+              { icon: <BookOpen className="h-7 w-7 text-blue-600" />, title: t('software.process.discovery'), desc: t('software.process.discoveryDesc') },
+              { icon: <TrendingUp className="h-7 w-7 text-green-900" />, title: t('software.process.design'), desc: t('software.process.designDesc') },
+              { icon: <RefreshCcw className="h-7 w-7 text-blue-600" />, title: t('software.process.development'), desc: t('software.process.developmentDesc') },
+              { icon: <Shield className="h-7 w-7 text-green-900" />, title: t('software.process.testing'), desc: t('software.process.testingDesc') },
+              { icon: <Users className="h-7 w-7 text-blue-600" />, title: t('software.process.deployment'), desc: t('software.process.deploymentDesc') },
+            ].map((step, idx) => (
               <motion.div
                 key={idx}
                 className="flex flex-col items-center text-center bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-all duration-200"
@@ -124,9 +116,14 @@ export default function SoftwareDevelopmentClient() {
       {/* Why Choose Us Section */}
       <section className="py-16 bg-white">
         <div className="max-w-5xl mx-auto px-4">
-          <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center">Why Choose Us?</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center">{t('software.whyChoose.title')}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {whyChoose.map((item, idx) => (
+            {[
+              { icon: <Star className="h-8 w-8 text-green-900" />, title: t('software.whyChoose.experienced'), desc: t('software.whyChoose.experiencedDesc') },
+              { icon: <Shield className="h-8 w-8 text-blue-600" />, title: t('software.whyChoose.secure'), desc: t('software.whyChoose.secureDesc') },
+              { icon: <Users className="h-8 w-8 text-green-900" />, title: t('software.whyChoose.collaborative'), desc: t('software.whyChoose.collaborativeDesc') },
+              { icon: <TrendingUp className="h-8 w-8 text-blue-600" />, title: t('software.whyChoose.proven'), desc: t('software.whyChoose.provenDesc') },
+            ].map((item, idx) => (
               <Card key={idx} className="flex flex-row items-center gap-6 p-6 shadow-md hover:shadow-lg transition-all duration-200">
                 <div>{item.icon}</div>
                 <div>
@@ -145,12 +142,12 @@ export default function SoftwareDevelopmentClient() {
           <Card className="shadow-xl border-green-100 bg-white/90">
             <CardContent className="py-10 flex flex-col items-center text-center">
               <PhoneCall className="h-10 w-10 text-green-900 mb-4" />
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">Ready to Build Your Software?</h3>
-              <p className="text-gray-700 mb-6">Contact us today for a free consultation and discover how we can help you build powerful, scalable software.</p>
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">{t('software.cta.title')}</h3>
+              <p className="text-gray-700 mb-6">{t('software.cta.desc')}</p>
               <Link href="/contact" passHref legacyBehavior>
                 <Button asChild size="lg" className="bg-green-900 hover:bg-green-800 text-white px-8 py-4 text-lg">
                   <span>
-                    Get Your Free Consultation
+                    {t('software.cta.button')}
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </span>
                 </Button>

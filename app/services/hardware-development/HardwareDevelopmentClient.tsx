@@ -5,6 +5,10 @@ import { Button } from '@/components/ui/button';
 import { Cpu, CheckCircle, ArrowRight, TrendingUp, Shield, Users, RefreshCcw, BookOpen, PhoneCall, Star } from 'lucide-react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import { useLanguage } from '@/contexts/LanguageContext';
+
+export default function HardwareDevelopmentClient() {
+  const { t } = useLanguage();
 
 const features = [
   'PCB Design & Prototyping',
@@ -21,22 +25,22 @@ const features = [
   'Technical Documentation',
 ];
 
-const process = [
-  { icon: <BookOpen className="h-7 w-7 text-blue-600" />, title: 'Consultation', desc: 'Understand your hardware needs and goals.' },
-  { icon: <TrendingUp className="h-7 w-7 text-green-900" />, title: 'Design', desc: 'Create schematics, layouts, and prototypes.' },
-  { icon: <RefreshCcw className="h-7 w-7 text-blue-600" />, title: 'Development', desc: 'Build, test, and iterate hardware solutions.' },
-  { icon: <Shield className="h-7 w-7 text-green-900" />, title: 'Certification', desc: 'Ensure compliance and quality standards.' },
-  { icon: <Users className="h-7 w-7 text-blue-600" />, title: 'Support', desc: 'Ongoing support and product improvement.' },
-];
+  const process = [
+    { icon: <BookOpen className="h-7 w-7 text-blue-600" />, title: t('services.process.discovery.title'), desc: t('services.process.discovery.desc') },
+    { icon: <TrendingUp className="h-7 w-7 text-green-900" />, title: t('services.process.strategy.title'), desc: t('services.process.strategy.desc') },
+    { icon: <RefreshCcw className="h-7 w-7 text-blue-600" />, title: t('services.process.development.title'), desc: t('services.process.development.desc') },
+    { icon: <Shield className="h-7 w-7 text-green-900" />, title: t('services.process.testing.title'), desc: t('services.process.testing.desc') },
+    { icon: <Users className="h-7 w-7 text-blue-600" />, title: t('services.process.deployment.title'), desc: t('services.process.deployment.desc') },
+    { icon: <PhoneCall className="h-7 w-7 text-green-900" />, title: t('services.process.support.title'), desc: t('services.process.support.desc') },
+  ];
 
-const whyChoose = [
-  { icon: <Star className="h-8 w-8 text-green-900" />, title: 'Industry Experts', desc: 'Experienced engineers in hardware and embedded systems.' },
-  { icon: <Shield className="h-8 w-8 text-blue-600" />, title: 'Quality Assurance', desc: 'Rigorous testing and certification processes.' },
-  { icon: <Users className="h-8 w-8 text-green-900" />, title: 'Collaborative Approach', desc: 'Work closely with clients at every stage.' },
-  { icon: <TrendingUp className="h-8 w-8 text-blue-600" />, title: 'End-to-End Service', desc: 'From concept to production and beyond.' },
-];
+  const whyChoose = [
+    { icon: <Star className="h-8 w-8 text-green-900" />, title: t('services.highlights.expertTeam.title'), desc: t('services.highlights.expertTeam.desc') },
+    { icon: <Shield className="h-8 w-8 text-blue-600" />, title: t('services.highlights.customSolutions.title'), desc: t('services.highlights.customSolutions.desc') },
+    { icon: <Users className="h-8 w-8 text-green-900" />, title: t('services.highlights.fastDelivery.title'), desc: t('services.highlights.fastDelivery.desc') },
+    { icon: <TrendingUp className="h-8 w-8 text-blue-600" />, title: t('services.whyChooseUs'), desc: t('services.subtitle') },
+  ];
 
-export default function HardwareDevelopmentClient() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
@@ -47,14 +51,14 @@ export default function HardwareDevelopmentClient() {
               <Cpu className="h-10 w-10 text-green-900" />
             </span>
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Hardware Development</h1>
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">{t('services.hardwareDev')}</h1>
           <p className="text-lg text-gray-700 mb-8 max-w-2xl mx-auto">
-            Custom hardware solutions designed and manufactured to meet your specific requirements.
+            {t('services.hardwareDevDesc')}
           </p>
           <Link href="/contact" passHref legacyBehavior>
             <Button asChild size="lg" className="bg-green-900 hover:bg-green-800 text-white px-8 py-4 text-lg">
               <span>
-                Get Started Today
+                {t('services.learnMore')}
                 <ArrowRight className="ml-2 h-5 w-5" />
               </span>
             </Button>
@@ -67,9 +71,9 @@ export default function HardwareDevelopmentClient() {
         <div className="max-w-5xl mx-auto px-4">
           <Card className="shadow-lg border-green-100 bg-gradient-to-br from-white to-green-50">
             <CardHeader>
-              <CardTitle className="text-2xl font-bold text-gray-900 mb-2">Key Features</CardTitle>
+              <CardTitle className="text-2xl font-bold text-gray-900 mb-2">{t('services.keyFeatures')}</CardTitle>
               <CardDescription className="text-gray-600 text-lg">
-                Our Hardware Development service covers a wide range of solutions from concept to production.
+                {t('services.hardwareDevDesc')}
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -101,8 +105,8 @@ export default function HardwareDevelopmentClient() {
       {/* Hardware Development Process Section */}
       <section className="py-16 bg-gradient-to-br from-green-50 via-white to-blue-50">
         <div className="max-w-5xl mx-auto px-4">
-          <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center">Our Hardware Development Process</h2>
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
+          <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center">{t('services.process.title')}</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {process.map((step, idx) => (
               <motion.div
                 key={idx}
@@ -124,7 +128,7 @@ export default function HardwareDevelopmentClient() {
       {/* Why Choose Us Section */}
       <section className="py-16 bg-white">
         <div className="max-w-5xl mx-auto px-4">
-          <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center">Why Choose Us?</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center">{t('services.whyChooseUs')}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {whyChoose.map((item, idx) => (
               <Card key={idx} className="flex flex-row items-center gap-6 p-6 shadow-md hover:shadow-lg transition-all duration-200">
@@ -145,12 +149,12 @@ export default function HardwareDevelopmentClient() {
           <Card className="shadow-xl border-green-100 bg-white/90">
             <CardContent className="py-10 flex flex-col items-center text-center">
               <PhoneCall className="h-10 w-10 text-green-900 mb-4" />
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">Ready to Build Your Hardware?</h3>
-              <p className="text-gray-700 mb-6">Contact us today for a free consultation and discover how we can help you bring your hardware ideas to life.</p>
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">{t('contact.cta.title')}</h3>
+              <p className="text-gray-700 mb-6">{t('contact.cta.desc')}</p>
               <Link href="/contact" passHref legacyBehavior>
                 <Button asChild size="lg" className="bg-green-900 hover:bg-green-800 text-white px-8 py-4 text-lg">
                   <span>
-                    Get Your Free Consultation
+                    {t('contact.cta.button')}
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </span>
                 </Button>
